@@ -1,0 +1,75 @@
+﻿<div id="whitefont">
+
+@foreach (Opleiding item in Curriculum.LijstOpleiding)
+{
+
+		<fieldset>
+			<legend>&nbsp;Opleiding &nbsp;</legend>
+			<table>
+                  <tr>
+					<td>&nbsp;&nbsp;&nbsp;Naam</td>
+                    <td><input @bind="item.NaamOpleiding" /></td>
+					<td><button class="minus" @onclick="() => Delete(item)">&nbsp;</button></td>
+                </tr>
+                <tr>
+					<td>&nbsp;&nbsp;&nbsp;Niveau</td>
+                    <td><input @bind="item.Niveau" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+					<td>&nbsp;&nbsp;&nbsp;Diploma</td>
+                    <td><input @bind="item.Diploma" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+					<td>&nbsp;&nbsp;&nbsp;Toelichting</td>
+                    <td><input @bind="item.Toelichting" /></td>
+                    <td></td>
+                </tr>
+
+				@{
+                    //                <tr>
+                    //<td><input type="color" id="favcolor" name="favcolor" value="red"></td>
+                    //<td></td>
+                //</tr>
+				}
+
+			</table>
+		</fieldset>
+}
+
+	<div>
+		<span style="float:right">
+			<button class="plus" @onclick="Add">&nbsp;</button>
+		</span>
+	</div>
+</div>
+
+
+@code 
+{
+	/// parameter: geeft object Curriculum dat in parent werd aangemaakt door aan child EditOpleiding  
+	[CascadingParameter]
+	public Curriculum Curriculum { get; set; }
+
+	/// idem voor XMLData
+	[CascadingParameter]
+	public XMLData XmlData { get; set; }
+
+	// wordt aangeroepen als user op png met de + klikt (toevoegen)
+	// toevoeging wordt in xml file weggeschreven
+	void Add()
+	{
+	Opleiding opl = new Opleiding();
+	opl.Id = Curriculum.LijstOpleiding.Count() + 1;
+	Curriculum.LijstOpleiding.Add(opl);
+	XmlData.Save(Curriculum);
+	}
+
+	// idem voor het verwijdering 
+	void Delete(Opleiding weg)
+	{
+	Curriculum.LijstOpleiding.Remove(weg);
+	XmlData.Save(Curriculum);
+	}
+}

@@ -1,0 +1,84 @@
+﻿
+	@*het gebruik van <br> om de layout juist te krijgen is natuurlijk vreselijk klungelig maar we nemen het op de koop 
+		en a die onderstaande forms kunnen ook in een foreach worden gegooid die de code genereert en de juiste values 
+		erin gooit. Ging hier niet door tijdsgebrek. 
+	toe in dit project*@
+	<div>
+		<button style="background-color:@Colors.Rood" class="btn-primary" 
+
+		@onclick="Rood">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    </div>    <br />
+
+	<div style="padding-top:5px">
+		<button style="background-color:@Colors.Geel;" class="btn-primary" @onclick="Geel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div><br />
+			
+	<div style="padding-top:5px">
+		<button style="background-color:@Colors.Groen" class="btn-primary" @onclick="Groen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div><br />
+
+	<div style="padding-top:5px">
+		<button style="background-color:@Colors.Cyaan" class="btn-primary" @onclick="Cyaan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div><br />
+
+	<div style="padding-top:5px">
+		<button style="background-color:@Colors.Blauw" class="btn-primary" @onclick="Blauw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div><br />
+
+	<div style="padding-top:5px">
+		<button style="background-color:@Colors.Magenta" class="btn-primary" @onclick="Magenta">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div>
+	
+
+
+
+@code {
+	[CascadingParameter]
+	public Curriculum Curriculum { get; set; }
+
+	[CascadingParameter]
+	public XMLData XmlData { get; set; }
+
+	// deze kan eruit of we laten hem als legacy staan
+	[Parameter]
+	public string test { get; set; }
+
+	// onderstaande voids kunnen in een enkele method maar ook hier geen betere code door gebrek aan tijd. De lap code hieronder
+	// werkt en dat was in dit project even prioritair.
+	// de functies die nodig waren om de kleurencombinaties te krijgen vroegen zoveel codeerwerk dat een en ander 
+	// in zijn geheel een refactoring zou moeten hebben. Tijdgebrek. Dit is best wel een functionaliteit met potentie die doorontwikkeld kan worden.
+	void Rood()
+	{
+		Colors.button = "Rood";
+	}
+
+	void Oranje()
+	{
+		Colors.button = "oranje";
+	}
+
+	void Geel()
+	{
+	Colors.button = "Geel";
+	}
+
+	void Groen()
+	{
+	Colors.button = "Groen";
+	}
+
+	void Cyaan()
+	{
+	Colors.button = "Cyaan";
+	}
+
+	void Blauw()
+	{
+	Colors.button = "Blauw";
+	}
+
+	void Magenta()
+	{
+	Colors.button = "Magenta";
+	}
+}

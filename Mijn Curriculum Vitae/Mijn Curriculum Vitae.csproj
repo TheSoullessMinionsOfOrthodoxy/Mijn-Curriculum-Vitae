@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <!-- <Nullable>enable</Nullable> -->
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Mijn_Curriculum_Vitae</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="CV_Edit\Css.razor" />
+    <Content Remove="CV_Edit\EditBackground.razor" />
+    <Content Remove="CV_Edit\EditFront.razor" />
+    <Content Remove="CV_Edit\EditLosseGegevens.razor" />
+    <Content Remove="CV_Edit\EditMenu.razor" />
+    <Content Remove="CV_Edit\Randodm.razor" />
+    <Content Remove="Pages\Counter.razor" />
+    <Content Remove="Pages\CV.razor" />
+    <Content Remove="Pages\FetchData.razor" />
+    <Content Remove="Shared\MainLayoutttt.razor" />
+    <Content Remove="Shared\NavMenu.razor" />
+    <Content Remove="Shared\SurveyPrompt.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\CV.razor.css" />
+    <None Remove="Pages\Index.razor.css" />
+    <None Remove="Shared\MainLayoutttt.razor.css" />
+    <None Remove="Shared\NavMenu.razor.css" />
+    <None Remove="XMLFile.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Voortgang.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xml\XMLFile.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4css_4bootstrap_4bootstrap_1min_1css_1map__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

@@ -1,0 +1,30 @@
+﻿<div>
+    <form>
+        <fieldset>
+            <legend>&nbsp;Vaardigheden&nbsp;</legend>
+            <table>
+                @foreach (var item in Curriculum.LijstVaardigheden)
+                    {
+                        <tr>
+                            <td>Vaardigheden</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Omschrijving</td>
+                            <td><input @bind="item.Omschrijving" /></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Toelichting</td>
+                            <td><input @bind="item.Toelichting" /></td>
+                        </tr>
+                    }
+            </table>
+        </fieldset>
+    </form>
+</div>
+
+
+@code {
+    [CascadingParameter]
+    public Curriculum Curriculum { get; set; }
+}

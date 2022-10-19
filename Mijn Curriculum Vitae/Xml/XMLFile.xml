@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cv>
+	<access>rr</access>
+	<voornaam>Koekie</voornaam>
+	<tussenvoegsel>de</tussenvoegsel>
+	<achternaam>Vries</achternaam>
+	<leeftijd>46</leeftijd>
+	<adres>Lindelaan</adres>
+	<postcode>2112ME</postcode>
+	<woonplaats>Brunssum</woonplaats>
+	<email>Koekie123@gmail.com</email>
+	<telefoon>0688335542</telefoon>
+	<foto>foto zegt meer dan 1000 woorden.</foto>
+	<meta>
+		Voor mijn vorige werkgever bedacht ik de slogan "Met onze mini-graafmachines kunt u een heel grote kuil voor een ander graven".
+
+		Ideeen
+		* we analyseren de kleurvoorkeuren van degene die personeel zoekt en de cv's wil bekijken. dat doen we meteen vanaf de rootpagina - indexpagina. Bezoeker krijgt twee identieke menu's in verschillende kleurstellingen voorgeschoteld. Dan komt hij in het zoek menu en ook daar weer analyseren we zijn kleur keuzes. De cv's die hij uiteindelijk te zien krijgt worden ingekleurd met de kleuren waar hij op vertrouwd.
+		* Dit is waarschijnlijk ook hoe grotere bedrijven te werk gaan. Alle info die de klant geeft gebruiken waar het kan.
+		* Kleurenpsychologie. Als de kleuren je wel/niet aanstaan. we worden onrustig van bepaalde kleurcombinaties en weer rustig van andere. We associeren ze ook met ideeen die ons wel of niet aanstaan. Sommige vinden we interessant of saai.
+		Als we de bezoeker een kleurcombinatie tonen waar hij zich prettig bij voelt zal hij langer op de site verblijven, zal zijn ervaring positiever zijn.
+
+	</meta>
+	<container_werkervaring>
+		<werkervaring1>
+			<id>0</id>
+			<werkgever></werkgever>
+			<functie></functie>
+			<periode></periode>
+			<referenties></referenties>
+		</werkervaring1>
+		<werkervaring1>
+			<id>0</id>
+			<werkgever></werkgever>
+			<functie></functie>
+			<periode></periode>
+			<referenties></referenties>
+		</werkervaring1>
+	</container_werkervaring>
+	<container_opleiding>
+		<opleiding1>
+			<id>0</id>
+			<naamopleiding>Horeca II</naamopleiding>
+			<niveau>MBO</niveau>
+			<diploma>Ja</diploma>
+			<toelichting></toelichting>
+		</opleiding1>
+		<opleiding1>
+			<id>0</id>
+			<naamopleiding></naamopleiding>
+			<niveau></niveau>
+			<diploma></diploma>
+			<toelichting></toelichting>
+		</opleiding1>
+	</container_opleiding>
+	<container_vaardigheden>
+		<vaardigheden1>
+			<id>0</id>
+			<omschrijving>Microsoft Office</omschrijving>
+			<toelichting></toelichting>
+		</vaardigheden1>
+		<vaardigheden1>
+			<id>0</id>
+			<omschrijving>MySql</omschrijving>
+			<toelichting></toelichting>
+		</vaardigheden1>
+	</container_vaardigheden>
+	<container_vrijetijdsbesteding>
+		<vrijetijdsbesteding1>
+			<id>0</id>
+			<activiteit>Bouwen</activiteit>
+		</vrijetijdsbesteding1>
+		<vrijetijdsbesteding1>
+			<id>0</id>
+			<activiteit>Met letters woorden maken</activiteit>
+		</vrijetijdsbesteding1>
+		<vrijetijdsbesteding1>
+			<id>0</id>
+			<activiteit>met woorden zinnen bouwen</activiteit>
+		</vrijetijdsbesteding1>
+		<vrijetijdsbesteding1>
+			<id>0</id>
+			<activiteit>met zinnen een verhaal vertellen</activiteit>
+		</vrijetijdsbesteding1>
+		<vrijetijdsbesteding1>
+			<id>0</id>
+			<activiteit>met code objecten maken</activiteit>
+		</vrijetijdsbesteding1>
+		<vrijetijdsbesteding1>
+			<id>0</id>
+			<activiteit>met objecten functionaliteiten maken</activiteit>
+		</vrijetijdsbesteding1>
+		<vrijetijdsbesteding1>
+			<id>0</id>
+			<activiteit>met functionaliteiten apps</activiteit>
+		</vrijetijdsbesteding1>
+	</container_vrijetijdsbesteding>
+</cv>

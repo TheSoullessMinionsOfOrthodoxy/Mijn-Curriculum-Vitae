@@ -1,0 +1,71 @@
+﻿@if (Curriculum.LijstVrijetijdsbesteding.Count() > 3)
+{
+	<text>
+		<style>
+		.above{
+			display: flex;
+			flex-direction:row;
+		}
+		</style>
+	</text>
+}
+else
+{
+	<text>
+		<style>
+			.above {
+				flex-direction:column;
+			}
+		</style>
+	</text>
+}
+
+<div style="" id="whitefont" class="above">
+        <fieldset>
+            <legend>&nbsp;Vrijetijdsbesteding&nbsp;</legend>
+            <table>
+			@foreach (Vrijetijdsbesteding item in Curriculum.LijstVrijetijdsbesteding)
+				{
+				<tr>
+                    <td>
+						&nbsp;&nbsp;&nbsp;Activiteit
+					</td>
+					<td>
+						<input @bind="item.Activiteit" />
+					</td>
+					<td>
+						<button class="minus" @onclick="() => Delete(item)">&nbsp;</button>
+					</td>
+                </tr>
+
+				}
+				<tr><td></td><td></td><td><button class="plus" @onclick="Add">&nbsp;</button></td></tr>
+            </table>
+        </fieldset>
+</div>
+
+
+@code {
+	[CascadingParameter]
+	public Curriculum Curriculum { get; set; }
+
+	[CascadingParameter]
+	public XMLData XmlData { get; set; }
+
+
+
+
+	void Add()
+	{
+		Vrijetijdsbesteding vb = new Vrijetijdsbesteding();
+		vb.Id = Curriculum.LijstVrijetijdsbesteding.Count() + 1;
+		Curriculum.LijstVrijetijdsbesteding.Add(vb);
+		XmlData.Save(Curriculum);
+	}
+
+	void Delete(Vrijetijdsbesteding weg)
+	{
+		Curriculum.LijstVrijetijdsbesteding.Remove(weg);
+		XmlData.Save(Curriculum);
+	}
+}

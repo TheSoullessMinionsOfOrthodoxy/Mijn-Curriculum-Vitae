@@ -1,0 +1,27 @@
+﻿<style>
+    textarea{
+        width:600px;
+        height: 300px;
+    }
+
+</style>
+
+<div>
+    <p>Do more</p>
+<p>Rate this cv</p>
+    <p>Rate this cv</p>
+    <p>Rate this cv</p>
+    <p>Rate this cv</p>
+
+    <br />
+    <p style="flex-wrap:wrap">
+        <textarea @bind="Curriculum.Meta" />
+    </p>
+
+</div>
+
+
+@code {
+    [CascadingParameter]
+    public Curriculum Curriculum { get; set; }
+}

@@ -1,0 +1,86 @@
+﻿<header>
+	<form>
+        <fieldset>
+        @*<legend>&nbsp;</legend>*@
+
+            <aside>
+                <br /><br />
+				@*<span style="font-size:15px"><b>@Curriculum.Voornaam</b></span>*@
+                <br /><br /><br />
+            </aside>
+        </fieldset>
+    </form>
+    <br /><br />
+	<form>
+		<fieldset>
+			@*<legend>&nbsp;&nbsp;</legend>*@
+
+			<div style="align-items: center; display: flex; justify-content: center;">
+				<br /><br />
+				<span style="font-size:15px"><b>Join BEE Academy</b></span>
+				<br /><br /><br />
+			</div>
+		</fieldset>
+	</form>
+	<br /><br />
+	<div style="background-color:none">
+	<form class="flex-container" style="padding-top:7px">
+       <fieldset>
+        <legend>&nbsp;Menu&nbsp;</legend>
+        <div>
+				<div class="n3">
+					<NavLink class="nav-link" style="text-decoration: none" href="about">
+						<span class="oi oi-plus" aria-hidden="true"></span> About
+					</NavLink>
+				</div>
+            <div class="n3">
+                <NavLink class="nav-link" style="text-decoration: none" href="CV">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Maken/Bewerken
+                </NavLink>
+            </div>
+            <div class="n3">
+                <NavLink class="nav-link" style="text-decoration: none" href="CV_View/CV">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Bewonderen
+                </NavLink>
+            </div>
+            <div class="n3">
+                <NavLink class="nav-link" style="text-decoration: none" href="todo">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Todo
+                </NavLink>
+            </div>
+
+@{
+                //<div class="n3">
+                //    <NavLink class="nav-link" style="text-decoration: none" href="counter">
+                //        <span class="oi oi-plus" aria-hidden="true"></span> Counter
+                //    </NavLink>
+                //</div>
+                //<div class="n3">
+                //    <NavLink class="nav-link" style="text-decoration: none" href="fetchdata">
+                //        <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
+                //    </NavLink>
+                //</div>
+}
+
+            <div class="n3">
+                <NavLink class="nav-link" style="text-decoration: none" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Bewonderen
+                </NavLink>
+            </div>
+        </div>
+    </fieldset>
+</form>
+	</div>
+</header>
+
+
+@code {
+	[CascadingParameter]
+	public Curriculum Curriculum { get; set; }
+
+	[CascadingParameter]
+	public XMLData XmlData { get; set; }
+
+
+
+}

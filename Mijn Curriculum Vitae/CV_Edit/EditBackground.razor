@@ -1,0 +1,188 @@
+﻿<style>
+    .rotate{
+        padding: 5px;
+        font-size: 11px;
+        
+        
+        z-index: -1;
+        position: relative;
+    }
+</style>
+
+
+<div class="rotate" style="background-color: none; z-index: -1;color: rgb(@r, @r, @r);">
+
+@*    @foreach (var beroep in beroepen)
+    {
+                int i = beroepen.Count();
+                string help = beroepen[randd.Next(0, i - 1)];
+        <span>@help &nbsp;</span>
+            
+    }
+        @foreach (var beroep in beroepen)
+    {
+                int i = beroepen.Count();
+                string help = beroepen[randd.Next(0, i - 1)];
+        <span>@help &nbsp;</span>
+            
+    }
+        @foreach (var beroep in beroepen)
+    {
+                int i = beroepen.Count();
+                string help = beroepen[randd.Next(0, i - 1)];
+        <span>@help &nbsp;</span>
+            
+    }*@
+
+    Verdwenen beroepen: 
+    @for (var i = 0; i < 1 * beroepen.Count(); i++)
+        {
+           returnstring += " " + beroepen[randd.Next(0, beroepen.Count() - 1)];
+        }
+        @returnstring
+
+    
+
+    
+
+</div>
+
+
+@code 
+{
+    [CascadingParameter]
+    public Curriculum Curriculum { get; set; }
+
+    string[] beroepen = new string[]
+     {
+        "Aanspreker",
+        "Afhouder",
+        "Baker",
+        "Baljuw",
+        "Barbier",
+        "Bieleman",
+        "Boekventer",
+        "Brikkenbekker",
+        "Buntsteken",
+        "Chirurgijn",
+        "Crasseur",
+        "Doodbidder",
+        "Gemeentebode",
+        "Gezworene",
+        "Gladiator",
+        "Goudzoeker",
+        "Griendwerker",
+        "Halfer",
+        "Harelbeekse spijker",
+        "Hoefsmid",
+        "Hondenslager",
+        "IJkmeester",
+        "Inbakker",
+        "Kalverschetser",
+        "Kantonnier",
+        "Kiepkerel",
+        "Kinkenvoerder",
+        "Kolenboer",
+        "Eendenkooi",
+        "Kopiist",
+        "Korenmeter",
+        "Kraankind",
+        "Krasmeester",
+        "Landdrost",
+        "Lantaarnopsteker",
+        "Lattenklieven",
+        "Letterzetter",
+        "Librariër",
+        "Marconist",
+        "Marskramer",
+        "Melkboer",
+        "Melkmeisje",
+        "Min",
+        "Minstreel",
+        "Neerslager",
+        "Nieuwmarkters",
+        "Omtoor",
+        "Opprikkelateur",
+        "Orgeltrapper",
+        "Oude-jongen",
+        "Parlevinker",
+        "Peek",
+        "Persemier",
+        "Platlandicus",
+        "Plattelandsheelmeester",
+        "Porder",
+        "Programmeur Algol",
+        "Programmeur Basic",
+        "Programmeur Cobol",
+        "Provoost",
+        "Publicanus",
+        "Putjesschepper",
+        "Rattenvanger",
+        "Redger",
+        "Reepschieter",
+        "Rentmeester",
+        "Richter",
+        "Rotmeester",
+        "Scharensliep",
+        "Scheepsjager",
+        "Scheepsjongen",
+        "Schelpenvisser",
+        "Schepen",
+        "Scholaster",
+        "Schoolmeester",
+        "Schooltandarts",
+        "Schotter",
+        "Schout",
+        "Speeljongen",
+        "Spijkermaker",
+        "Stadsomroeper",
+        "Stenograaf",
+        "Stoker",
+        "Straatzanger",
+        "Stronttonnetjesschepper",
+        "Stuurmansmaat",
+        "Tabellioen",
+        "Telegrafist",
+        "Teuthandelaar",
+        "Tollenaar",
+        "Typiste WordPerfect",
+        "Veldwachter",
+        "Velleman",
+        "Vilder",
+        "Voddenman",
+        "Voorproever",
+        "Vorster",
+        "Vuurtorenwachter",
+        "Wachter",
+        "Wagenmaker",
+        "Wijnroeier",
+        "Zakkendrager"
+     };
+
+    public static Random randd = new Random();
+
+
+    string returnstring = "";
+
+    int r = randd.Next(150, 255);
+    int g = 100;
+    int b = 100;
+
+    //string VergetenBeroepen()
+    //{
+    //    ;
+    
+
+    //    for (var i = 0; i < 3 * beroepen.Count(); i++)
+    //    {
+    //        returnstring += " " + beroepen[randd.Next(0, beroepen.Count() - 1)];
+    //    }
+
+    //    return returnstring;
+    //}
+
+
+
+
+
+}

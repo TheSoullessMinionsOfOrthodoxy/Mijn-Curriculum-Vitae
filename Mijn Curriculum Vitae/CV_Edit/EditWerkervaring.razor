@@ -1,0 +1,72 @@
+﻿<div id="whitefont">
+	@foreach (Werkervaring item in Curriculum.LijstWerkervaring)
+    {
+        <fieldset>
+            <legend>&nbsp;Werkervaring&nbsp;</legend>
+            <table>
+                <tr>
+				<td>&nbsp;&nbsp;&nbsp;Werkgever</td>
+                    <td><input @bind="item.Werkgever" /></td>
+				<td><button class="minus" @onclick="() => Delete(item)">&nbsp;</button></td>
+                </tr>
+                <tr>
+				<td>&nbsp;&nbsp;&nbsp;Functie</td>
+                    <td><input @bind="item.Functie" /></td>
+					<td></td>
+                </tr>
+                <tr>
+			<td>&nbsp;&nbsp;&nbsp;Periode</td>
+                    <td><input @bind="item.Periode" /></td>
+				<td></td>
+                </tr>
+                <tr>
+				<td>&nbsp;&nbsp;&nbsp;Referenties</td>
+                    <td><input @bind="item.Referenties" /></td>
+					<td></td>
+                </tr>
+            </table>
+        </fieldset>
+
+@*	tell++;
+	if (tell > 2)
+		{
+			<input type="hidden" @bind="flexdirection" />
+			flexdirection = "row";
+		}
+		else
+		{
+			<input type="hidden" @bind="flexdirection" />
+			flexdirection = "column";
+		}*@
+    }
+	<div>
+		<span style="float:right">
+			<button @onclick="Add"><img src="plus-circle.png" alt="sss" /></button>
+		</span>
+	</div>
+</div>
+
+@code {
+	public int tell = 1;
+	string flexdirection = "column";
+
+	[CascadingParameter]
+	public Curriculum Curriculum { get; set; }
+
+	[CascadingParameter]
+	public XMLData XmlData { get; set; }
+
+	void Add()
+	{
+		Werkervaring we = new Werkervaring();
+		we.Id = Curriculum.LijstWerkervaring.Count() + 1;
+		Curriculum.LijstWerkervaring.Add(we);
+		XmlData.Save(Curriculum);
+	}
+
+	void Delete(Werkervaring weg)
+	{
+		Curriculum.LijstWerkervaring.Remove(weg);
+		XmlData.Save(Curriculum);
+	}
+}

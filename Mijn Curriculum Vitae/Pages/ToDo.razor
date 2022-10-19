@@ -1,0 +1,187 @@
+﻿@page "/todo"
+@using System.Xml.Linq
+@{
+    if (teller == 1)
+    {
+        teller++;
+
+
+        XElement cvs = DataVoortgang.Root;
+        foreach (var item in cvs.Elements())
+        {
+            TodoItem td = new TodoItem();
+            td.Subject = item.Element("subject").Value;
+            td.Important = (bool)item.Element("important");
+            td.Urgent = (bool)item.Element("urgent");
+            td.Done = (bool)item.Element("done");
+            td.Id = int.Parse(item.Element("id").Value);
+            todos.Add(td);
+        }
+
+        //bovenste rij: border weg
+
+        //Electrische kachel kopen
+
+        //checkboxes centreren
+        
+        //datum toevoegen
+
+        //xml bestand maken dat geschreven en gelezen kan worden
+
+    }
+}
+
+<h2>Personal Sprint backlog</h2>
+
+<h4>Todo List: @todos.Count(todo => todo.Done) items to do</h4>
+
+<table>
+    <tr style="border: none">
+        <td style="border: none">
+            <button @onclick="SortImportant">Important
+            </button>
+        </td>
+        <td style="border: none"><button @onclick="SortUrgent">Urgent</button></td>
+        <td style="border: none"><button @onclick="SortDone">Done</button></td>
+        <td style="border: none">Subject</td>
+        <td style="border: none"><button @onclick="SortDate">Date</button></td>
+        <td style="border: none"></td>
+    </tr>
+
+    @if (true)
+    {
+        
+    }
+
+    @foreach (TodoItem todo in todos)
+    {
+        <tr>
+            <td><input type="checkbox" @bind="todo.Important"  /></td>
+            <td><input type="checkbox" @bind="todo.Urgent" /></td>
+            <td><input type="checkbox" @bind="todo.Done" /></td>
+
+            @if (todo.Done)
+            {
+                deleteTodoItem = "DeleteButton";
+            }
+
+            <td>
+                <textarea style="border: 0px" @bind="todo.Subject" />
+            </td>
+            <td>
+                @todo.Date
+            </td>
+            <td>
+                <button @onclick="() => Delete(todo.Id)">Delete</button>
+            </td>
+        </tr>
+        @if (deleteTodoItem == "DeleteButton")
+        {
+            deleteTodoItem = "";
+        }
+
+    }
+
+    @{
+        
+    
+    }
+
+</table>
+<br />
+<!--<input placeholder= TextBox en <button @onclick= Button-->
+<input placeholder="Something todo" @bind="newTodo" />
+<button @onclick="AddTodo">Add todo</button>
+<button @onclick="Save">Save</button>
+
+@code {
+
+    XMLVoortgang DataVoortgang = new XMLVoortgang();
+
+
+    private void AddTodo()
+    {
+        if (!string.IsNullOrWhiteSpace(newTodo))
+        {
+            TodoItem x = new TodoItem();
+            x.Subject = newTodo;
+            todos.Add(x);
+            x.Id = todos.Count() + 1;
+
+            Save();
+
+            newTodo = string.Empty;  
+        }
+    }
+
+    private void Save()
+    {
+        IEnumerable<XElement> LoopFranz()
+        {
+            foreach (var item in todos)
+            {
+                XElement t = new XElement("todo");
+                XElement tsubject = new XElement("subject", item.Subject);
+                t.Add(tsubject);
+                XElement timportant = new XElement("important", item.Important);
+                t.Add(timportant);
+                XElement turgent = new XElement("urgent", item.Urgent);
+                t.Add(turgent);
+                XElement tdone = new XElement("done", item.Done);
+                t.Add(tdone);
+                XElement tdate = new XElement("datein", item.Date);
+                t.Add(tdate);
+                XElement tid = new XElement("id", item.Id);
+                t.Add(tid);
+
+                yield return t;
+            }
+        }
+        XElement doc = new XElement("root", LoopFranz());
+
+        Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+        String path = Directory.GetCurrentDirectory();
+        doc.Save(path + "\\Voortgang.xml");
+    
+    }
+
+    private void SortImportant()
+    {
+        todos = todos.OrderByDescending(o => o.Important).ToList();
+    }
+
+    private void SortUrgent()
+    {
+        todos = todos.OrderByDescending(t => t.Urgent).ToList();
+        //todos = todos
+        //    .OrderByDescending(t => t.Urgent)
+        //    .Select(t => t)
+        //    .ToList();
+    }
+
+    private void SortDone()
+    {
+        todos = todos.OrderByDescending(o => o.Done).ToList();
+    }
+
+    private void SortDate()
+    {
+        todos = todos.OrderByDescending(o => o.Date).ToList();
+    }
+
+    //public int? ind;
+    private void Delete(int i)
+    {
+        TodoItem? itemToDelete = todos.FirstOrDefault(t => t.Id == i);
+        //int ind = todos.IndexOf(itemToDelete); // nou en
+
+        todos.RemoveAt(todos.IndexOf(itemToDelete));
+    }
+
+    public List<TodoItem> todos = new();
+    private string deleteTodoItem = "";
+    private string? newTodo;
+
+    private int teller = 1;
+}
+

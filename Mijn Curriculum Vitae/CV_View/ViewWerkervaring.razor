@@ -1,0 +1,46 @@
+﻿<div class="flex-container">
+
+    @foreach (var item in Curriculum.LijstWerkervaring)
+    {
+     <div>
+        <form>
+            <fieldset>
+                <legend>&nbsp;Werkervaring&nbsp;</legend>
+                <br />
+                <table>
+                    <tr>
+                        <td>Werkervaring @(tell++)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Werkgever</td>
+                        <td><input @bind="item.Werkgever" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Functie</td>
+                        <td><input @bind="item.Functie" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Periode</td>
+                        <td><input @bind="item.Periode" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Referenties</td>
+                        <td><input @bind="item.Referenties" /></td>
+                    </tr>
+                </table>
+                <br />
+            </fieldset>
+        </form>
+    </div>        
+     }
+     @{tell = 1;}
+
+</div>
+
+@code {
+    public int tell = 1;
+
+    [CascadingParameter]
+    public Curriculum Curriculum { get; set; }
+}

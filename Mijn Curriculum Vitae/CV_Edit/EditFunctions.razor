@@ -1,0 +1,28 @@
+﻿<style>
+    textarea{
+        padding: 20px;
+        width:600px;
+        height: 300px;
+        border-radius: 24px;
+    }
+</style>
+
+
+<div style="background-color:none">
+    <form class="flex-container" style="padding:14px; background-color: none">
+        <fieldset height="100%">
+        <legend>&nbsp;Statements & Achievements&nbsp;</legend>
+            <table>
+                <tr>
+                    <td style="flex-wrap:wrap"><textarea @bind="Curriculum.Meta" /></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</div>
+
+
+@code {
+    [CascadingParameter]
+    public Curriculum Curriculum { get; set; }
+}

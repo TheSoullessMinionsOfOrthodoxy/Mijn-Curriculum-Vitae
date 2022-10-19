@@ -1,0 +1,140 @@
+﻿<style>
+    #grad1 {
+        height: 550px;
+        background-color: purple; /* For browsers that do not support gradients */
+		/*background-image: src="Capture.PNG"linear-gradient(purple,red, yellow);*/
+		background-image: linear-gradient(red,yellow,green,blue,purple, red, yellow);
+		
+    }
+
+	.btn-group .btton {
+		
+		/*border: 1px solid green;*/
+		/*color: white;*/
+		height:80px;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		font-size: 16px;
+		cursor: pointer;
+		width: 150px;
+		display: block;
+	}
+
+		.btn-group .button:not(:last-child) {
+			border-bottom: none; /* Prevent double borders */
+		}
+
+		.btn-group .btton:hover {
+			background-color: #3e8e41;
+		}
+
+</style>
+
+<br />
+<br />
+<div class="top-row ps-3 navbar navbar-dark" style="background:none">
+    <div class="container-flui">
+        <br />&nbsp;&nbsp;&nbsp;
+        <a style="color:white" class="navbar-brand" href="">Old School Presents</a>
+@*        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            @*<span class="navbar-toggler-icon"></span>*@
+        @*</button>*@
+    </div>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+	
+
+
+    <nav style="border-radius:24px" class="flex-column" id="grad1">
+		<br />&nbsp;		<br />&nbsp;<br />&nbsp;		<br />&nbsp;<br />&nbsp;<br />&nbsp;
+		<div class="btn-group">
+			<button class="btton" @onclick="Groen">Button</button>
+			<button class="btton" @onclick="Cyaan">Cyaan</button>
+			<button class="btton" @onclick="Blauw">Button</button>
+			<button class="btton" @onclick="Magenta">Button</button>
+		<button class="btton" @onclick="Rood">Button</button>
+		<button class="btton" @onclick="Geel">Button</button>
+		</div>
+
+
+@*        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="CV">
+                <span class="oi oi-plus" aria-hidden="true"></span> CV
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="todo">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Todo
+            </NavLink>
+        </div>
+		<div class="nav-item px-3">
+			<NavLink class="nav-link" href="about">
+				<span class="oi oi-list-rich" aria-hidden="true"></span> About
+			</NavLink>
+		</div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+		<h1 @onclick=H1Clicked>Hello, world!</h1>*@
+    </nav>
+</div>
+
+
+
+@code {
+
+	[CascadingParameter]
+	public Colors Top { get; set; }
+
+
+	private bool collapseNavMenu = true;
+
+	private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+	private void ToggleNavMenu()
+	{
+	collapseNavMenu = !collapseNavMenu;
+
+	}
+
+	void Rood()
+	{
+	Colors.button = "Rood";
+	}
+
+	void Oranje()
+	{
+	Colors.button = "oranje";
+	}
+
+	void Geel()
+	{
+	Colors.button = "Geel";
+	}
+
+	void Groen()
+	{
+	Colors.button = "Groen";
+	}
+
+	void Cyaan()
+	{
+	Colors.button = "Cyaan";
+	}
+
+	void Blauw()
+	{
+	Colors.button = "Blauw";
+	}
+
+	void Magenta()
+	{
+	Colors.button = "Magenta";
+	}
+
+
+}

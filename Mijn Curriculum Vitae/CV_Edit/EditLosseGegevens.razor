@@ -1,0 +1,67 @@
+﻿<div>
+    <form>
+        <fieldset height="100%">
+            <legend>&nbsp;Persoonlijke Gegevens&nbsp;</legend>
+            <table>
+                <tr>
+                    <td>Voornaam:</td>
+                    <td><input @onkeypress="KeyPress" @bind="Curriculum.Voornaam" /></td>
+                </tr>
+                <tr>
+                    <td>Tussenvoegsel:</td>
+                    <td><input @onkeypress="KeyPress" @bind="Curriculum.Tussenvoegsel" /></td>
+                </tr>
+                <tr>
+                    <td>Achternaam:</td>
+                    <td><input @onkeypress="KeyPress" @bind="Curriculum.Achternaam" /></td>
+                </tr>
+                <tr>
+                    <td>Adres:</td>
+                    <td><input @onkeypress="KeyPress" @bind="Curriculum.Adres" /></td>
+                </tr>
+                <tr>
+                    <td>Postcode:</td>
+                    <td><input @onkeypress="KeyPress" @bind="Curriculum.Postcode" /></td>
+                </tr>
+                <tr>
+                    <td>Woonplaats:</td>
+                    <td><input @bind="Curriculum.Woonplaats" /></td>
+                </tr>
+                <tr>
+                    <td>Leeftijd:</td>
+                    <td><input @bind="Curriculum.Leeftijd" /></td>
+                </tr>
+                <tr>
+                    <td>Telefoon:</td>
+                    <td><input @bind="Curriculum.Telefoon" /></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input @bind="Curriculum.Email" /></td>
+                </tr>
+                <tr>
+                    <td>Foto</td>
+                    <td><img src="tootsie-1.jpg" alt="sss" /><input @bind="Curriculum.Foto" /></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</div>
+
+
+@code {
+    [CascadingParameter]
+    public Curriculum Curriculum { get; set; }
+
+    [CascadingParameter]
+    public XMLData XmlData { get; set; }
+
+    void KeyPress(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            XmlData.Save(Curriculum);
+
+        }
+    }
+}
