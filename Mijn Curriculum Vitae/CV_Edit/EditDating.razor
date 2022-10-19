@@ -12,6 +12,12 @@
 					@{
 						string[] arr = new string[] { "fat.jpg", "hurley.jpg", "bontmuts.jpg", "asdas.jpg","wagner.jpg", "old.jpg","drevil.jpg","melferrel.jpg","fem.jpg", "son.jpg", "york.jpg", "austin.jpg", "mini.jpg"};
 						int pic = Rand.getRandom.Next(0, arr.Count()); 
+						if (arr[pic] == "bontmuts.jpg")
+						{
+							Curriculum.Achternaam = "sss";
+							<input type="hidden" @bind="Curriculum.Achternaam" />
+							
+						}
 					}
 					<input type="hidden" @bind="arr[pic]" /><img src=@arr[pic] alt="sss" />
 				</td>

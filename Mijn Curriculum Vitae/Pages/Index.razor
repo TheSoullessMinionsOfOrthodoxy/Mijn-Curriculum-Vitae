@@ -74,12 +74,14 @@ button {
 .bg-item2 {
     grid-area: menu;
 	display:flex;
-	align-content:center;
+	/*align-content:center;*/
 }
 
 .bg-item3 {
     grid-area: main;
 	display:flex;
+	font-size:15px !important;
+	color:black;
 	align-content:center;
 }
 
@@ -203,7 +205,7 @@ button {
 				gridItems.Remove(weg);
 
 	}
-												<text>@output "el10" ; }</text>
+														<text>@output "el10" ; }</text>
 	}/*
 	grid-template-areas:
         "header"
@@ -448,7 +450,10 @@ button {
 *@
 
 @{
-	Top.SetValues(Colors.button, 45);
+	// Deze method bepaalt het kleurengebied waaruit de basiskleur wordt getrokken. De int bepaalt hoever de twee 
+	// kleuren die in de kleurencirkel boven en onder de basiskleur zitten, uit elkaar liggen. Zou het getal 180 zijn dan komen de twee kleuren uit op de
+	// tegenoverliggende kleur.
+	Top.SetValues(Colors.button, 10);
 	if (teller > 0)
 	{
 	// Object XMLData wordt aangemaakt en bij constructie wordt de juiste XML file ingelezen en omgezet naar een Curriculum object
@@ -478,9 +483,10 @@ button {
 		<button style="border-radius: 24px; background-color:white" @onclick="Save">Save</button>
 		
 	</p>
-	@{///*<div id="hidden">sssssssssssssssssssssss</div>
-		//	<br />*/
-	}
+	<br />
+	<div id="hidden">sssssssssssssssssssssss</div>
+
+	
 	
 </div>
 	<br />
@@ -506,7 +512,11 @@ button {
 			@{<text>@VerdwenenBeroepen(2);</text>returnstring = "";}
 		</div>
 
-		<div class="bg-item3" style="background-color:hsl(@Top.basisKleur_Min, 100%,@Rand.getRandom.Next(70,90)%) !important;"></div>
+		<div class="bg-item3" style="background-color:hsl(@Top.basisKleur_Min, 100%,@Rand.getRandom.Next(70,90)%) !important;">
+
+		@{<text>@PrintSlogans(2);</text>returnstring = "";}
+		
+		</div>
 		<div class="bg-item4" style="background-color:hsl(@Top.basisKleur_Min, 100%,@Rand.getRandom.Next(70,90)%) !important;"></div>
 
 		<div class="bg-item5">
@@ -665,6 +675,7 @@ button {
 	public Rand RandColor;
 
 	string returnstring = "";
+	string returnAstring = "";
 
 	string[] beroepen = new string[]
 	{
@@ -772,6 +783,18 @@ button {
 		"Zakkendrager"
 	};
 
+	string[] Slogans = new string[]
+	{
+		"Volhardend",
+		"Probleemoplosser",
+		"Creatief",
+		"Doener",
+		"teamplayer",
+		"enthousiast",
+		"hielenlikkend",
+		"Brikkenbekker"
+	};
+
 	Colors Top = new Colors();
 
 	string hidden = @"#hidden\{visibility:hidden; display:none; \}";
@@ -793,9 +816,22 @@ button {
 				sb.Append("  - ♰" + beroepen[Rand.getRandom.Next(0, beroepen.Count() - 1)]);
 			}
 			int a = sb.ToString().Count();
+			
 			return sb.ToString();
 	}
 
+
+	string PrintSlogans(int i)
+	{
+		StringBuilder sb = new StringBuilder();
+		for (i = 0; i < 11 * Slogans.Count(); i++)
+			{
+				sb.Append("  - ♰" + Slogans[Rand.getRandom.Next(0, Slogans.Count() - 1)]);
+			}
+			int a = sb.ToString().Count();
+			
+			return sb.ToString();
+	}
 	////////////////////////////////////////////////////////////////////////////
 	// Object Curriculum wordt omgezet naar XML - XML wordt naar file geschreven
 	////////////////////////////////////////////////////////////////////////////
