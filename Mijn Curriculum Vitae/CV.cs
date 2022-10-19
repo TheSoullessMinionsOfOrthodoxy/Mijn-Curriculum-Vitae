@@ -8,7 +8,7 @@ using System.Drawing;
 using Microsoft.VisualBasic;
 
 //
-// De c# motor van dit ding. Een verzameling classes en andere gereedschappen
+// De c# motor van dit ding. Een verzameling classes met het gereedschap dat nodig is
 //
 namespace Mijn_Curriculum_Vitae
 {
@@ -262,15 +262,16 @@ namespace Mijn_Curriculum_Vitae
     /// <summary>
     /// /////////////////////////////////////////////////
     /// </summary>
-    // Class die het echte werk doet bij het samenstellen van kleurcombinaties
+    // Class die het echte werk doet bij het samenstellen van de kleurcombinaties
     ///////////////////////////////////////////////////
 
     public class Colors
     {
         public static string button;
         
-        // eigenlijk zou dit een void moeten zijn maar die kan niet vanaf een andere component worden aangeroepen
-        // de return value van deze method wordt niet gebruikt
+        // Eigenlijk zou dit een void moeten zijn maar die kan niet vanaf een andere component worden aangeroepen
+        // de return value van deze method wordt niet gebruikt. De method zet de values van de vier kleuren die gebruikt worden 
+        // voor de kleurcombinatie.
         public  int SetValues(string buttn, int minmax)
         {
             int x = 0;
