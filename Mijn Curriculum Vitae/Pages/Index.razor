@@ -431,6 +431,8 @@ button {
 	background-color:hsl(@Top.basisKleur_Min,100%,50%);
 }
 
+	<text>@hidden</text>
+
 </style>
 
 @*Wat is Blazor?
@@ -472,7 +474,12 @@ button {
 		<span class="houseofcolorsHoC">&nbsp;&nbsp;tegenoverliggende kleur:@Top.basisKleurTegenover&nbsp;&nbsp;</span>&nbsp;
 		<span class="houseofcolorsHusk">&nbsp;&nbsp;basiskleur Plus:@Top.basisKleur_Plus&nbsp;&nbsp;</span>&nbsp;
 		<span class="houseofcolorsHeerlen">&nbsp;&nbsp;basiskleur Min: @Top.basisKleur_Min&nbsp;&nbsp;</span>
+		<button class="plus" @onclick="ShowLinks">&nbsp;</button>
+		
 	</p>
+	<div id="hidden">sssssssssssssssssssssss</div>
+	<br />
+	mmmm
 </div>
 	<br />
 
@@ -765,9 +772,17 @@ button {
 
 	Colors Top = new Colors();
 
+	string hidden = @"#hidden\{visibility:hidden; display:none; \}";
+
 	//////////// METHODS ////////////////////////////////////////////////////////
 	//////////// METHODS ////////////////////////////////////////////////////////
 	//////////// METHODS ////////////////////////////////////////////////////////
+	void ShowLinks() 
+	{
+		hidden = @"#hidden\{visibility:visible; display:block; \}";
+	
+	}
+
 	string VerdwenenBeroepen(int i)
 	{
 		StringBuilder sb = new StringBuilder();
