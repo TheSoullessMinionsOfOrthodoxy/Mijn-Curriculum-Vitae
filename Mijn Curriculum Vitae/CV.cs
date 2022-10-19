@@ -8,7 +8,7 @@ using System.Drawing;
 using Microsoft.VisualBasic;
 
 //
-// De c# motor van dit ding. Een verzameling classes met het gereedschap dat nodig is
+// De c# motor van dit ding. Een verzameling classes met het gereedschap dat nodig is.
 //
 namespace Mijn_Curriculum_Vitae
 {
