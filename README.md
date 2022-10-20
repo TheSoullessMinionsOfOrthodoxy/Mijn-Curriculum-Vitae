@@ -17,7 +17,4 @@ Gebruik de bonte knoppen aan de linkerbovenkant van de pagina om de kleurencombi
 
 Heerlen, 20 oktober 2022
 
-BEE House of Colors - HeyYou*
-
-
-*HeyYou = Hein en Jules. 
+BEE House of Colors Heerlen
