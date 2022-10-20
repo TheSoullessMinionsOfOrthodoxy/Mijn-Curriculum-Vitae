@@ -174,15 +174,10 @@ namespace Mijn_Curriculum_Vitae
     {
         public Curriculum()
         {
-
-        LijstWerkervaring = new List<Werkervaring>();
-        LijstOpleiding = new List<Opleiding>();
-        LijstVaardigheden = new List<Vaardigheden>();
-        LijstVrijetijdsbesteding = new List<Vrijetijdsbesteding>();
-        //FlexDirection = new Dictionary<string, string>()
-        //{
-        //    {"werkervaring", "ddd"},
-        //};
+            LijstWerkervaring = new List<Werkervaring>();
+            LijstOpleiding = new List<Opleiding>();
+            LijstVaardigheden = new List<Vaardigheden>();
+            LijstVrijetijdsbesteding = new List<Vrijetijdsbesteding>();
         }
 
         public string Access { get; set; }
@@ -203,10 +198,7 @@ namespace Mijn_Curriculum_Vitae
         public List<Werkervaring> LijstWerkervaring;
         public List<Opleiding> LijstOpleiding;
         public List<Vaardigheden> LijstVaardigheden;
-        public List<Vrijetijdsbesteding> LijstVrijetijdsbesteding;
-
-        //public Dictionary<string, string> FlexDirection; new Dictionary<string, string>(){ }
-        
+        public List<Vrijetijdsbesteding> LijstVrijetijdsbesteding;       
     }
 
     // De classes die binnen Curriculum worden gebruikt 

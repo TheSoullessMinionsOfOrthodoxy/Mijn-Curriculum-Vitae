@@ -80,7 +80,7 @@ button {
 .bg-item3 {
     grid-area: main;
 	display:flex;
-	font-size:15px !important;
+	font-size:13px !important;
 	color:black;
 	align-content:center;
 }
@@ -174,10 +174,7 @@ button {
     padding: 30px;
     border-radius: 24px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 ";
-
-
 
 		List<string> gridItems = new List<string> {
 		"header",
@@ -205,25 +202,8 @@ button {
 				gridItems.Remove(weg);
 
 	}
-														<text>@output "el10" ; }</text>
-	}/*
-	grid-template-areas:
-        "header"
-        "menu"
-        "main"
-        "right"
-        "footer"
-        "el1"
-        "el2"
-        "el3"
-        "el4"
-        "el5"
-        "el6"
-		"el7"
-        "el8"
-		"el9"
-        "el10";
-}*/
+			<text>@output "el10" ; }</text>
+	}
 
     .bg_grid-container > div {
         display: flex;
@@ -484,7 +464,8 @@ button {
 		
 	</p>
 	<br />
-	<div id="hidden">sssssssssssssssssssssss</div>
+	@{/*<div id="hidden">sssssssssssssssssssssss</div>*/
+		}
 
 	
 	
@@ -791,7 +772,10 @@ button {
 		"Doener",
 		"teamplayer",
 		"enthousiast",
-		"hielenlikkend",
+		"Besluitvaardig",
+		"doorzetter",
+		"servicegericht",
+
 		"Brikkenbekker"
 	};
 
@@ -826,7 +810,7 @@ button {
 		StringBuilder sb = new StringBuilder();
 		for (i = 0; i < 11 * Slogans.Count(); i++)
 			{
-				sb.Append("  - ♰" + Slogans[Rand.getRandom.Next(0, Slogans.Count() - 1)]);
+				sb.Append(" - " + Slogans[Rand.getRandom.Next(0, Slogans.Count() - 1)]);
 			}
 			int a = sb.ToString().Count();
 			
