@@ -419,33 +419,53 @@ button {
 
 @*Wat is Blazor?
 	Het is de combinatie van Razor (server) en Browser(client).
-	Razor: serversite scripting pakket van Microsoft voor samewerking met clientsite code (html, css, javascript). Razor is PHP-achtig. Overigens is Razor maar een van de pakketten van Microsoft voor clientsite.
+	Razor: scripting pakket (frame-work) van Microsoft voor samewerking tussen server- en clientsite code (html, css, javascript). Razor is PHP-achtig. Overigens is Razor maar een van de pakketten van Microsoft voor clientsite.
 	Terug naar Blazor. Blazer maakt het mogelijk om een hoop handige functionaliteiten van de server naar de client te verleggen. Met Blazor kun je veel javascript code overslaan omdat je rechtstreeks met de html Dom werkt. Deze technologie wordt ondersteund door alle grote browsers.
 	Html Dom? Dat is het binnenste van de browser. Tot voor kort het exclusieve domein van javascript maar nu is er met WASP een nieuwe speler erbij gekomen. Wasp?
 	Blazor is rommelig. Tenminste, als je het pas leert is het lastig om alles een beetje goed te structureren. Er zitten zoveel beperkingen in het op een pagina mogelijk maken van c#, html en css dat zelfs de auto format functie van vs 2022 het niet aankan.
 	Dat helpt natuurlijk niet mee om dit spul te leren.
 	Elke Razor pagina (xxx.razor) kan een eigen xxx.cs en een xxx.razor.css hebben. De css werkt dan exclusief voor die pagina. De cs file kan ook vanuit andere pagina's worden gebruikt.
 	Elke .razor file wordt een component genoemd. Je kunt vanuit een parent component childcomponenten aanroepen. Etc. Met allerlei functies waarvan we er pas een paar hebben verkend kun je heel ingewikkelde
-	apps bouwen die zo'n beetje alles doen wat je wil behalve de afwas en hond uitlaten.
+	apps bouwen die zo'n beetje alles doen wat je wil behalve de afwas en hond uitlaten. 	
 *@
 
 @{
-	// Deze method bepaalt het kleurengebied waaruit de basiskleur wordt getrokken. De int bepaalt hoever de twee 
-	// kleuren die in de kleurencirkel boven en onder de basiskleur zitten, uit elkaar liggen. Zou het getal 180 zijn dan komen de twee kleuren uit op de
-	// tegenoverliggende kleur.
+	// Hier begint het gegoochel met de kleuren. Uitgangspunt is om bij elke click op een van de gekleurde buttons op de site een kleurencombinatie 
+	// op het scherm te brengen van bij elkaar passende kleuren. 
+
+	// Hoe doe je dat? 
+	// Kleuren die direct naast elkaar liggen in de kleurencirkel vloeken niet met elkaar. Dit principe hebben 
+	// we in code verwerkt. Een random trekt een willekeurige kleur in het deelgebied dat door een van de gekleurde buttons op de site 
+	// vertegenwoordigd wordt. Dit is de basiskleur van het palet dat op het scherm gebruikt wordt. De code zorgt ervoor dat nog twee 
+	// kleuren worden toegevoegd aan het palet: de basiskleurplus en de basiskleurmin. De plus ligt aan de ene kant naast de
+	// basiskleur in de kleurencirkel en de min aan de andere kant. De method hieronder bepaalt hoever de kleuren plus en min uit elkaar liggen. 
+	// Hoe dichter ze bij elkaar liggen hoe kleiner de kleurverschillen. Deze kleuren komen op allerlei plaatsen terug op het scherm maar 
+	// ze worden wel telkens nog eens door de random onder handen genomen wat betreft verzadiging en helderheid. De kans dat je twee keer 
+	// hetzelfde kleurenpalet achter elkaar krijgt is zo klein dat het onwaarschijnlijk is dat je dit ooit zal meemaken. 
+	// Overigens kun je ook de tegenpool van de basiskleur nog gebruiken. Die wordt meteen ook aangemaakt en door de afstand van de plus 
+	// tot de min hoog te zetten kun je ook kleurcombi's krijgen die wel vloeken.
+
+	// De kleuren worden door de css gestuurd. We gebruiken hier niet de bekende rgb methode maar de hsl methode. H staat voor hue, 
+	// s voor saturation en l voor lightness. De hue kan een int zijn in de range 0-360 en vertegenwoordigt een van de 360 kleuren 
+	// uit de kleurcirkel. Met de hsl methode kun je dus vrij eenvoudig met code de kleuren op elkaar afstemmen. 
+	// Vraag: wie ziet niet de potentie van het door ons bedachte algoritme?  	
+
 	Top.SetValues(Colors.button, 10);
 	if (teller > 0)
 	{
 	// Object XMLData wordt aangemaakt en bij constructie wordt de juiste XML file ingelezen en omgezet naar een Curriculum object
-	// om te voorkomen dat telkens een nieuw XMLData object wordt aangemaakt als de pagina aangeroepen wordt hebben we de truc met teller bedacht.
+	// om te voorkomen dat telkens een nieuw XMLData object wordt aangemaakt als de pagina aangeroepen wordt hebben we de truc met 
+	// teller bedacht. 
 	XmlData = new XMLData();
 	Curriculum = @XmlData.GetCurriculum();
 	teller++;
 	}
 }
-
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    HEADER TOP         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    Hier begint de html XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX       HEADER          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
 <div id="top-r" style="border-radius:24px;">
@@ -466,20 +486,17 @@ button {
 	<br />
 	@{/*<div id="hidden">sssssssssssssssssssssss</div>*/
 		}
-
-	
-	
 </div>
 	<br />
 
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    CONTAINER ALLES    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    CONTAINER WAAR ALLES INZIT   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
 <div class="container">
 
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    ACHTERGROND DIV    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    ACHTERGROND DIV die met css grid werkt  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 	
 <div class="bg_grid-container">      
@@ -536,7 +553,7 @@ button {
 	</div>
 
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    VOORGROND DIV    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  VOORGROND DIV die met css flexbox werkt  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
 	<div class="flex-container" style="padding-top:30px;"> 
@@ -578,6 +595,21 @@ button {
 				<div class="nuance6">&nbsp;&nbsp;&nbsp;</div>
 			</form>
 		</header>
+
+@{
+	// De onderstaande tags zijn Blazor tags die ervoor zorgen dat de objecten die nodig zijn om de data op de juiste plek te zetten 
+	// worden doorgegeven aan EditDating. EditDating is een stukje html met c# variabelen dat op de plek van de tag ingelezen wordt.
+	// 
+	// <CascadingValue Value="@Curriculum">
+	//				<CascadingValue Value="@XmlData">
+	//					<EditDating />
+	//				</CascadingValue>
+	//</CascadingValue>
+
+	// De onderstaande Blazor tags zorgen ervoor dat alles op de plek komt die we willen. De verschillende bestanden die worden
+	// ingelezen worden componenten genoemend. Wat er in een component staat en waar je hem gebruikt bepaal je zelf. Dat is in een 
+	// notedop hoe Blazor (maar ook Angular werkt).
+}
 
 		<div class="DataDrager-A" style="background-color:none; display: flex; justify-content:  center;">
 			<div style="align-items: center; display: flex; justify-content: center;">
@@ -640,7 +672,7 @@ button {
 </div>
 
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXX CODE CODE CODE CODE CODE CODE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXX C# CODE CODE CODE CODE CODE CODE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
 	@code
@@ -657,6 +689,10 @@ button {
 
 	string returnstring = "";
 	string returnAstring = "";
+
+	// Deze hard gecodeerde stringarray is natuurlijk helemaal fout in een bedrijfsmatige setting. Maar we gebruiken hem gewoon omdat 
+	// hij hier werkt zonder dat we spatjes hoeven uit te halen met een database of xml file waar we dan de data uit zouden ophalen
+	// als we de hardcoding willen vermijden.
 
 	string[] beroepen = new string[]
 	{
@@ -763,7 +799,7 @@ button {
 		"Wijnroeier",
 		"Zakkendrager"
 	};
-
+	
 	string[] Slogans = new string[]
 	{
 		"Volhardend",
@@ -775,10 +811,9 @@ button {
 		"Besluitvaardig",
 		"doorzetter",
 		"servicegericht",
-
-		"Brikkenbekker"
 	};
 
+	// Het object dat bij elke klik opnieuw wordt aangemaakt en het kleurenpalet bevat
 	Colors Top = new Colors();
 
 	string hidden = @"#hidden\{visibility:hidden; display:none; \}";
@@ -786,12 +821,15 @@ button {
 	//////////// METHODS ////////////////////////////////////////////////////////
 	//////////// METHODS ////////////////////////////////////////////////////////
 	//////////// METHODS ////////////////////////////////////////////////////////
+
+	//Deze method is nog niet actief
 	void ShowLinks() 
 	{
 		hidden = @"#hidden\{visibility:visible; display:block; \}";
-	
 	}
 
+	// de onderstaande 2 methods zorgen ervoor dat de divs in de background div worden gevuld met willekeurig getrokken strings uit de 
+	// hierboven gedefinieerde stringarrays.
 	string VerdwenenBeroepen(int i)
 	{
 		StringBuilder sb = new StringBuilder();
@@ -822,6 +860,9 @@ button {
 	private void Save()
 	{	XmlData.Save(Curriculum);}
 
+
+// deze void methods zorgen ervoor dat de method Top.SetValues(Colors.button, 10) ook weten 
+// in welk kleurgebied de random basiskleur moet worden getrokken  
 	void Rood()
 	{	Colors.button = "Rood";}
 

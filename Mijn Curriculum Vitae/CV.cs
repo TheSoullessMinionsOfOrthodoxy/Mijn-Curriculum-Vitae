@@ -23,10 +23,15 @@ namespace Mijn_Curriculum_Vitae
             //var records = Root.Elements();
         }
 
+        // XElement en XDoc zijn onze helpers als we met xml en linq werken. Linq? De q is dezelfde q als in SQL. Linq is alleen
+        // drie keer beter, leesbaarder en fijner om mee te werken. 
         public XElement Root { get; set; }
-        
+
+        // We initialiseren we het object van het type Curriculum        
         private Curriculum _curriculum;
 
+        // Deze method zorgt ervoor dat het object curriculum wordt gevuld met data uit de xml als de method vanaf de indexpagina
+        // wordt aangeroepen
         public Curriculum GetCurriculum()
         {
             _curriculum = new Curriculum();
@@ -85,6 +90,8 @@ namespace Mijn_Curriculum_Vitae
             return _curriculum;
         }
 
+        // hier bewandelen we de omgekeerde weg: we gebruiken het object curriculum om wijzigingen in de data die de user heeft aangebracht
+        // weer in de xml file te krijgen zodat ze een volgende keer ook weer ingelezen kunnen worden.
         public void Save(Curriculum C)
         {
             //Curriculum C = ListOFCV.FirstOrDefault(c => c.Access == Accesscode);
@@ -169,7 +176,7 @@ namespace Mijn_Curriculum_Vitae
         }
     }
 
-    // De class die de data uit de xml gebruikt in de c# en razor/blazor omgeving
+    // Onze c# gegevensdrager voor de CV data
     public class Curriculum : Object
     {
         public Curriculum()
@@ -242,6 +249,7 @@ namespace Mijn_Curriculum_Vitae
 
 
     //  Class die static rand bevat zodat in de rand geen patronen herkenbaar zijn
+    // Dit kleine stukje code is waarschijnlijk de meest gebruikte code van het hele project
     public class Rand
     {
 		static Random ranDom = new Random();
@@ -261,7 +269,7 @@ namespace Mijn_Curriculum_Vitae
     {
         public static string button;
         
-        // Eigenlijk zou dit een void moeten zijn maar die kan niet vanaf een andere component worden aangeroepen
+        // Eigenlijk zou dit een void moeten zijn maar die kan (voorzover onze kennis reikt) niet vanaf een andere component worden aangeroepen
         // de return value van deze method wordt niet gebruikt. De method zet de values van de vier kleuren die gebruikt worden 
         // voor de kleurcombinatie.
         public  int SetValues(string buttn, int minmax)
@@ -273,14 +281,15 @@ namespace Mijn_Curriculum_Vitae
                 int xxx = Rand.getRandom.Next(0, 30);
                 int xxxx = Rand.getRandom.Next(1, 3);
 
-                if (xxxx % 2 == 0)
-                    x = xx;
+                if (xxxx % 2 == 0) // de operator % laat de (eventuele) rest zien van een deling. Ideaal icm een randwaarde.                                   
+                    x = xx; // if en else kun je ook zonder {} schrijven als ze maar 1 statement bevatten
                 else
                     x = xxx;
             }
 
             if (buttn == "Geel")
-                { x = Rand.getRandom.Next(30, 90);}
+                { x = Rand.getRandom.Next(30, 90);} // 30 en 90 zijn de grenzen tussen rood/geel en geel/groen. dit is het gebied
+                                                    // waaruit de random de basiskleur trekt
 
             if (buttn == "Groen")
                 { x = Rand.getRandom.Next(90, 150);}
@@ -331,11 +340,15 @@ namespace Mijn_Curriculum_Vitae
             return 0;   
         } 
         
+        //Dit zijn de kleuren die in de bovenstaande method worden geset en in de css van de indexpagina worden gebruikt.
         public  int basisKleur; 
         public  int basisKleurTegenover;
         public  int basisKleur_Min;
         public  int basisKleur_Plus;
 
+        // Deze methods worden in de css gebruikt om de css string te creeren. Dit is een onderdeel dat niet af is en er
+        // zouden er nog een paar bij moeten zodat we ook de andere kleuren uit het pakket kant en klaar in stringvorm op de 
+        // indexagina kunnen gebruiken
         public string basisKleurSL(int smin, int smx, int lmin, int lmax)
         {
             string sat = Rand.getRandom.Next(smin, smx).ToString(); 
@@ -359,6 +372,7 @@ namespace Mijn_Curriculum_Vitae
             return bk;
         }
 
+        // deze zorgen ervoor dat de kleurkeuze buttons op de indexpagina de juiste kleur krijgen
         public static string Rood{ get => "hsl(0,   100%, 50%);";}
 
         public static string Geel{ get =>  "hsl(60,  100%, 50%);";}
@@ -372,16 +386,9 @@ namespace Mijn_Curriculum_Vitae
         public static string Magenta{ get => "hsl(300, 100%, 50%);";}
     }
     
-    // Class die nodig is om communicatie mogelijk te maken tussen parent en child. Kan waarschijnlijk veel efficienter
-    // met razor code maar daar zijn we niet aan toe gekomen. Probleem is opgelost en dat is wat nu even belangrijker was
-    public class ColorCombi
-    {
-        public  int baseC; 
-        public  int baseC_Oppo;
-        public  int baseC_Min;
-        public  int baseC_Plus;
-    }
 
+// we wilden graag een keer met een interface werken maar het was weer eens helemaal niet nodig. Toch gaan we hem nodig maken zodat we 
+// leren ermee te werken.
 public interface IColor
 {
     
