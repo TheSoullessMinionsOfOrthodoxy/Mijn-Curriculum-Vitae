@@ -9,8 +9,6 @@ Sander hebben we gevraagd om met de ogen van een product-owner naar het project 
 
 Er liggen nog een heleboel plannen op de plank die we in het korte tijdsbestek niet hebben kunnen inbouwen. Wat we zeker nog gaan doen is de mogelijkheid inbouwen om de kleuren op een beheerpagina naar wens in te stellen.  
 
-Het leerproces leidde ook tot het uitvinden van een nieuwe programmeertaal: 'NullJavascript'. NullJavascript is revolutionair en simpel tegelijkertijd. NullJavascript heeft maar 1 property: null. Met andere woorden: niks, nada, noppes Javascript. Kennis van Javascript is niet meer nodig om sites te maken waarmee je alles uit de html-dom kast kunt halen. Typescript kan de vuilnisbak in. Angular in de textielcontainer en de rest van de frame-works flikkeren we in de restcontainer.  
-
 XXX Aanwijzing voor het gebruik van de site:
 Gebruik de bonte knoppen aan de linkerbovenkant van de pagina om de kleurencombinaties die zijn ingeprogrammeerd uit te proberen. 
 
