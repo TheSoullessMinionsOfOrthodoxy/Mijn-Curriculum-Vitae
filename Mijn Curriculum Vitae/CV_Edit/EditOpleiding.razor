@@ -2,7 +2,6 @@
 
 @foreach (Opleiding item in Curriculum.LijstOpleiding)
 {
-
 		<fieldset>
 			<legend>&nbsp;Opleiding &nbsp;</legend>
 			<table>
@@ -26,14 +25,6 @@
                     <td><input @bind="item.Toelichting" /></td>
                     <td></td>
                 </tr>
-
-				@{
-                    //                <tr>
-                    //<td><input type="color" id="favcolor" name="favcolor" value="red"></td>
-                    //<td></td>
-                //</tr>
-				}
-
 			</table>
 		</fieldset>
 }

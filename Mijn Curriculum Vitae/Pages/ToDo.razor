@@ -1,10 +1,10 @@
 ﻿@page "/todo"
 @using System.Xml.Linq
 @{
+	// deze pagina moet nog ergens op de frontpagina een link krijgen en is nog niet klaar
     if (teller == 1)
     {
         teller++;
-
 
         XElement cvs = DataVoortgang.Root;
         foreach (var item in cvs.Elements())
@@ -17,17 +17,6 @@
             td.Id = int.Parse(item.Element("id").Value);
             todos.Add(td);
         }
-
-        //bovenste rij: border weg
-
-        //Electrische kachel kopen
-
-        //checkboxes centreren
-        
-        //datum toevoegen
-
-        //xml bestand maken dat geschreven en gelezen kan worden
-
     }
 }
 
@@ -47,11 +36,6 @@
         <td style="border: none"><button @onclick="SortDate">Date</button></td>
         <td style="border: none"></td>
     </tr>
-
-    @if (true)
-    {
-        
-    }
 
     @foreach (TodoItem todo in todos)
     {
@@ -79,12 +63,6 @@
         {
             deleteTodoItem = "";
         }
-
-    }
-
-    @{
-        
-    
     }
 
 </table>
@@ -97,7 +75,6 @@
 @code {
 
     XMLVoortgang DataVoortgang = new XMLVoortgang();
-
 
     private void AddTodo()
     {
@@ -142,7 +119,6 @@
         Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
         String path = Directory.GetCurrentDirectory();
         doc.Save(path + "\\Voortgang.xml");
-    
     }
 
     private void SortImportant()
@@ -153,10 +129,6 @@
     private void SortUrgent()
     {
         todos = todos.OrderByDescending(t => t.Urgent).ToList();
-        //todos = todos
-        //    .OrderByDescending(t => t.Urgent)
-        //    .Select(t => t)
-        //    .ToList();
     }
 
     private void SortDone()
@@ -169,11 +141,9 @@
         todos = todos.OrderByDescending(o => o.Date).ToList();
     }
 
-    //public int? ind;
     private void Delete(int i)
     {
         TodoItem? itemToDelete = todos.FirstOrDefault(t => t.Id == i);
-        //int ind = todos.IndexOf(itemToDelete); // nou en
 
         todos.RemoveAt(todos.IndexOf(itemToDelete));
     }
