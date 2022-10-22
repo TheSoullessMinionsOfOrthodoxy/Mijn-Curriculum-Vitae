@@ -23,41 +23,30 @@ table {
     width: 200px;
 }
 
-td {
-    border: none;
-}
+td {border: none;}
 
 a {
     font-size: 14px;
-    text-decoration: none !important;
+    text-decoration:none !important;
 }
-
-    a:link {
-        color: black;
-    }
-
-    a:visited {
-        color: black;
-    }
+    a:link {color: black;}
+    a:visited {color: black;}
 
 input {
-    padding-left: 15px;
+    padding-left: 13px;
     padding-top: 5px;
     padding-bottom: 5px;
     border: 1px solid #ccc;
     border-radius: 24px;
-    width: 150px;
+    width: 140px;
     background-color: white;
 }
 
-    input[type=text]:focus {
-        border: 1px solid #000;
-    }
+    input[type=text]:focus {border: 1px solid #000;}
 
 fieldset {
     border-radius: 24px;
     border-width: 2px;
-    /*		text-align: center;*/
 }
 
 img {
@@ -72,159 +61,6 @@ button {
     align-items: center;
 }
 
-.bg-item1 {
-    grid-area: header;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item2 {
-    grid-area: menu;
-	display:flex;
-	/*align-content:center;*/
-}
-
-.bg-item3 {
-    grid-area: main;
-	display:flex;
-	font-size:13px !important;
-	color:black;
-	align-content:center;
-}
-
-.bg-item4 {
-    grid-area: right;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item5 {
-    grid-area: footer;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item6 {
-    grid-area: el1;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item7 {
-    grid-area: el2;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item8 {
-    grid-area: el3;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item9 {
-    grid-area: el4;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item10 {
-    grid-area: el5;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item11 {
-    grid-area: el6;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item12 {
-    grid-area: el7;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item13 {
-    grid-area: el8;
-	display:flex;
-	align-content:center;
-}
-
-.bg-item14 {
-    grid-area: el9;
-	display:flex;
-	align-content:center;
-}
-.bg-item11 {
-    grid-area: el10;
-	display:flex;
-	align-content:center;
-}
-
-.container {
-    position: absolute;
-	nowrap:wrap;
-	width: 95.5vmax;
-}
-
-
-	@{
-	// dit stukje code zorgt ervoor dat de background grid
-	// steeds verandert qua layout
-		string output = @"
-.bg_grid-container {
-    position: absolute;
-    top: 0px;
-    z-index: 0;
-    display: grid;
-    gap: 30px;    
-    padding: 30px;
-    border-radius: 24px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-";
-
-		List<string> gridItems = new List<string> {
-		"header",
-        "menu",
-        "main",
-        "right",
-        "footer",
-        "el1",
-        "el2",
-        "el3",
-        "el4",
-        "el5",
-        "el6",
-		"el7",
-        "el8",
-		"el9"
-		};
-
-		int count = gridItems.Count();
-		 output +=	"grid-template-areas: ";
-		for (int i = 0; i < count; i++)
-		{
-				string weg = gridItems[Rand.getRandom.Next(0, count - i)];
-				 output += Environment.NewLine + $"\""+ weg + $"\"" + " ";
-				gridItems.Remove(weg);
-
-	}
-				<text>@output "el10" ; }</text>
-	}
-
-    .bg_grid-container > div {
-        display: flex;
-		align-items: center;
-        flex-wrap: wrap;
-        padding: 20px;
-        font-size: 11px;
-        border-radius: 30px;
-        text-align: left;
-        flex-direction: column;
-    }
-
 #header {
     padding: 10px;
     padding-left: 2rem !important;
@@ -237,6 +73,55 @@ button {
     height: 3.5rem;
     align-items: center;
 }
+.container {
+    position: absolute;
+	nowrap:wrap;
+	width: 95.5vmax;
+}
+
+.bg_grid-container {
+    position: absolute;
+    top: 0px;
+    z-index: 0;
+    display: grid;
+    gap: 30px;    
+    padding: 30px;
+    border-radius: 24px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	@grid_template_areas()
+}
+
+    .bg_grid-container > div {
+        display: flex;
+		align-items: center;
+        flex-wrap: wrap;
+        padding: 20px;
+        font-size: 11px;
+        border-radius: 30px;
+        text-align: left;
+        flex-direction: column;
+    }
+
+.bg-item1, .bg-item2, .bg-item3, .bg-item4, .bg-item5, .bg-item6, .bg-item7, .bg-item8, .bg-item9, .bg-item10, .bg-item11, .bg-item12, .bg-item13, .bg-item14, .bg-item15 {
+	display:flex;
+	align-content:center;
+}
+
+.bg-item1 {grid-area: item1;}
+.bg-item2 {grid-area: item2;}
+.bg-item3 {grid-area: item3;}
+.bg-item4 {grid-area: item4;}
+.bg-item5 {grid-area: item5;}
+.bg-item6 {grid-area: item6;}
+.bg-item7 {grid-area: item7;}
+.bg-item8 {grid-area: item8;}
+.bg-item9 {grid-area: item9;}
+.bg-item10 {grid-area: item10;}
+.bg-item11 {grid-area: item11;}
+.bg-item12 {grid-area: item12;}
+.bg-item13 {grid-area: item13;}
+.bg-item14 {grid-area: item14;}
+.bg-item15 {grid-area: item15;}
 
 .btn-primary {
     color: #000;
@@ -247,9 +132,7 @@ button {
     border-radius: 24px;
 }
 
-    .btn-primary:hover {
-        transform: scale(0.7);
-    }
+    .btn-primary:hover {transform: scale(0.7);}
 
 .flex-container {
     position: relative;
@@ -289,7 +172,6 @@ button {
 		justify-content: center;
 		margin-right: 20px
 }
-
 			.flex-container > .DataDrager-B  > div {
             margin: 10px;
             font-size: 13px;
@@ -301,10 +183,10 @@ button {
                 transform: scale(1.1);
             }
 
-	#whitefont{
-		color: white;
-		border: 1px black;
-	}
+#whitefont{
+	color: white;
+	border: 1px black;
+}
 
 .basic {
     display: flex;
@@ -324,28 +206,14 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-	
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.minus {
-    background-image: url(minus-white.png);
-}
+.minus {background-image: url(minus-white.png);}
+.plus {background-image: url(plus-circle.png);}
 
-.plus {
-    background-image: url(plus-circle.png);
-}
-
-.rotate {
-    padding: 5px;
-    font-size: 11px;
-    color: rgb(100,100,100);
-    z-index: -1;
-    position: relative;
-}
 
 .divcolorbuttons {
-    
     margin: 5px;
     padding: 12px;
     font-size: 13px;
@@ -362,9 +230,16 @@ button {
     margin: 5px;
 }
 
-/*////////////////     KLEUREN     ////////////////////////////
- //////////////////    KLEUREN    ////////////////////////////
-  //////////////////   KLEUREN   ///////////////////////////*/
+.houseofcolorsBEE, .houseofcolorsHoC, .houseofcolorsHusk, .houseofcolorsHeerlen{
+	padding:10px;
+	border-radius: 24px 0px;
+}
+
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  KLEUREN    KLEUREN  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  KLEUREN  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  KLEUREN    KLEUREN  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  KLEUREN  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
 .bg-item6 {background-color: hsl(@Top.basisKleur_Min, 100%,@Rand.getRandom.Next(60,80)%);}
 .bg-item7 {background-color: hsl(@Top.basisKleur_Min, 100%,@Rand.getRandom.Next(50,90)%);}
 
@@ -395,26 +270,10 @@ button {
 .nuance5 {background-color: hsl(@Top.basisKleurSL(40,80,75,85));}
 .nuance6 {background-color: hsl(@Top.basisKleurSL(40,80,85,95));}
 
-.houseofcolorsBEE{
-	padding:10px;
-	border-radius: 24px 0px;
-	background-color:hsl(@Top.basisKleur,100%,50%);
-} 
-.houseofcolorsHoC{
-	padding:10px;
-	border-radius: 24px 0px;
-	background-color:hsl(@Top.basisKleurTegenover,100%,50%);
-}
-.houseofcolorsHusk{
-	padding:10px;
-	border-radius: 24px 0px;
-	background-color:hsl(@Top.basisKleur_Plus,100%,50%);
-}
-.houseofcolorsHeerlen{
-	padding:10px;
-	border-radius: 24px 0px;
-	background-color:hsl(@Top.basisKleur_Min,100%,50%);
-}
+.houseofcolorsBEE{background-color:hsl(@Top.basisKleur,100%,50%);}
+.houseofcolorsHoC{background-color:hsl(@Top.basisKleurTegenover,100%,50%);}
+.houseofcolorsHusk{background-color:hsl(@Top.basisKleur_Plus,100%,50%);}
+.houseofcolorsHeerlen{background-color:hsl(@Top.basisKleur_Min,100%,50%);}
 
 	<text>@hidden</text>
 
@@ -453,7 +312,7 @@ button {
 	// uit de kleurcirkel. Met de hsl methode kun je dus vrij eenvoudig met code de kleuren op elkaar afstemmen. 
 	// Vraag: wie ziet niet de potentie van het door ons bedachte algoritme?  	
 
-	Top.SetValues(Colors.button, 10);
+	Top.SetValues(Colors.button, 30);
 	if (teller > 0)
 	{
 	// Object XMLData wordt aangemaakt en bij constructie wordt de juiste XML file ingelezen en omgezet naar een Curriculum object
@@ -465,10 +324,10 @@ button {
 	}
 }
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    Hier begint de html XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    HTML  HTML HTML HTML  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX       HEADER          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          HEADER          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
 <div id="header" style="border-radius:24px;">
@@ -486,11 +345,11 @@ button {
 		<button style="border-radius: 24px; background-color:white" @onclick="Save">Save</button>
 		
 	</p>
-	<br />
+
 	@{/*<div id="hidden">sssssssssssssssssssssss</div>*/
 		}
 </div>
-	<br />
+
 
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    CONTAINER WAAR ALLES INZIT   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
@@ -672,33 +531,32 @@ button {
 	</div>
 				<br />
 		
-</div>
+	</div>
 
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXX C# CODE CODE CODE CODE CODE CODE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX C# CODE CODE CODE CODE CODE CODE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
 	@code
  {
-	///////////// FIELDS ////////////////////////////////////////////////////////
-	///////////// FIELDS ////////////////////////////////////////////////////////
-	///////////// FIELDS ////////////////////////////////////////////////////////
-	int teller = 1;
+    ///////////// FIELDS ////////////////////////////////////////////////////////
+    ///////////// FIELDS ////////////////////////////////////////////////////////
+    ///////////// FIELDS ////////////////////////////////////////////////////////
+    int teller = 1;
 
-	XMLData XmlData;
-	public Curriculum Curriculum;
+    XMLData XmlData;
+    public Curriculum Curriculum;
 
-	public Rand RandColor;
+    public Rand RandColor;
 
-	string returnstring = "";
-	string returnAstring = "";
+    string returnstring = "";
+    string returnAstring = "";
 
-	// Deze hard gecodeerde stringarray is natuurlijk helemaal fout in een bedrijfsmatige setting. Maar we gebruiken hem gewoon omdat 
-	// hij hier werkt zonder dat we spatjes hoeven uit te halen met een database of xml file waar we dan de data uit zouden ophalen
-	// als we de hardcoding willen vermijden.
-
-	string[] beroepen = new string[]
-	{
+    // Deze hard gecodeerde stringarray is natuurlijk helemaal fout in een bedrijfsmatige setting. Maar we gebruiken hem gewoon omdat 
+    // hij hier werkt zonder dat we spatjes hoeven uit te halen met een database of xml file waar we dan de data uit zouden ophalen
+    // als we de hardcoding willen vermijden.
+    string[] beroepen = new string[]
+    {
 		"Aanspreker",
 		"Afhouder",
 		"Baker",
@@ -801,10 +659,10 @@ button {
 		"Wagenmaker",
 		"Wijnroeier",
 		"Zakkendrager"
-	};
-	
-	string[] Slogans = new string[]
-	{
+    };
+
+    string[] Slogans = new string[]
+    {
 		"Volhardend",
 		"Probleemoplosser",
 		"Creatief",
@@ -814,79 +672,94 @@ button {
 		"Besluitvaardig",
 		"doorzetter",
 		"servicegericht",
-	};
+    };
 
-	// Het object dat bij elke klik opnieuw wordt aangemaakt en het kleurenpalet bevat
-	Colors Top = new Colors();
+    // Het object dat bij elke klik opnieuw wordt aangemaakt en het kleurenpalet bevat
+    Colors Top = new Colors();
 
-	string hidden = @"#hidden\{visibility:hidden; display:none; \}";
+    string hidden = @"#hidden\{visibility:hidden; display:none; \}";
 
-	//////////// METHODS ////////////////////////////////////////////////////////
-	//////////// METHODS ////////////////////////////////////////////////////////
-	//////////// METHODS ////////////////////////////////////////////////////////
+    //////////// METHODS ////////////////////////////////////////////////////////
+    //////////// METHODS ////////////////////////////////////////////////////////
+    //////////// METHODS ////////////////////////////////////////////////////////
 
-	//Deze method is nog niet actief
-	void ShowLinks() 
-	{
-		hidden = @"#hidden\{visibility:visible; display:block; \}";
-	}
+    //Deze method is nog niet actief
+    void ShowLinks() => hidden = @"#hidden\{visibility:visible; display:block; \}";
 
-	// de onderstaande 2 methods zorgen ervoor dat de divs in de background div worden gevuld met willekeurig getrokken strings uit de 
-	// hierboven gedefinieerde stringarrays.
-	string VerdwenenBeroepen(int i)
-	{
+    // zorgt voor een random in de css achtergrond grid
+    string grid_template_areas()
+    { 
+    string s = "";
+    List<string> gridItems = new List<string> {
+		"item1",
+		"item2",
+		"item3",
+		"item4",
+		"item5",
+		"item6",
+		"item7",
+		"item8",
+		"item9",
+		"item10",
+		"item11",
+		"item12",
+		"item13",
+		"item14"
+		};
+
+    int count = gridItems.Count();
+    s += "grid-template-areas: ";
+    for (int i = 0; i < count; i++)
+    {
+    string weg = gridItems[Rand.getRandom.Next(0, count - i)];
+    s += $"\"" + weg + $"\"";
+    gridItems.Remove(weg);
+    }
+    s += $"\"" + "item15" + $"\"" + ";";
+    return s;
+    }
+
+    // de onderstaande 2 methods zorgen ervoor dat de divs in de background div worden gevuld met willekeurig getrokken strings uit de 
+    // hierboven gedefinieerde stringarrays.
+    string VerdwenenBeroepen(int i)
+    {
 		StringBuilder sb = new StringBuilder();
 		for (i = 0; i < 1 * beroepen.Count(); i++)
-			{
-				sb.Append("  - ♰" + beroepen[Rand.getRandom.Next(0, beroepen.Count() - 1)]);
-			}
-			int a = sb.ToString().Count();
-			
-			return sb.ToString();
-	}
+		{
+			sb.Append("  - ♰" + beroepen[Rand.getRandom.Next(0, beroepen.Count() - 1)]);
+		}
+		int a = sb.ToString().Count();
 
+		return sb.ToString();
+    }
 
-	string PrintSlogans(int i)
-	{
+    string PrintSlogans(int i)
+    {
 		StringBuilder sb = new StringBuilder();
 		for (i = 0; i < 11 * Slogans.Count(); i++)
-			{
-				sb.Append(" - " + Slogans[Rand.getRandom.Next(0, Slogans.Count() - 1)]);
-			}
-			int a = sb.ToString().Count();
-			
-			return sb.ToString();
-	}
-	////////////////////////////////////////////////////////////////////////////
-	// Object Curriculum wordt omgezet naar XML - XML wordt naar file geschreven
-	////////////////////////////////////////////////////////////////////////////
-	private void Save()
-	{	XmlData.Save(Curriculum);}
+		{
+			sb.Append(" - " + Slogans[Rand.getRandom.Next(0, Slogans.Count() - 1)]);
+		}
+		int a = sb.ToString().Count();
 
+		return sb.ToString();
+    }
 
-// deze void methods zorgen ervoor dat de method Top.SetValues(Colors.button, 10) ook weten 
-// in welk kleurgebied de random basiskleur moet worden getrokken  
-	void Rood()
-	{	Colors.button = "Rood";}
+    ////////////////////////////////////////////////////////////////////////////
+    // Object Curriculum wordt omgezet naar XML - XML wordt naar file geschreven
+    ////////////////////////////////////////////////////////////////////////////
+    private void Save() => XmlData.Save(Curriculum);
 
-	void Oranje()
-	{	Colors.button = "oranje";}
-
-	void Geel()
-	{	Colors.button = "Geel";}
-
-	void Groen()
-	{	Colors.button = "Groen";}
-
-	void Cyaan()
-	{	Colors.button = "Cyaan";	}
-
-	void Blauw()
-	{	Colors.button = "Blauw";}
-
-	void Magenta()
-	{	Colors.button = "Magenta";}
-	}
+    // deze void methods zorgen ervoor dat de method Top.SetValues(Colors.button, 10) ook weten 
+    // in welk kleurgebied de random basiskleur moet worden getrokken  
+    void Rood() => Colors.button = "Rood";
+    void Oranje() => Colors.button = "oranje";
+    void Geel() => Colors.button = "Geel";
+    void Groen() => Colors.button = "Groen";
+    void Cyaan() => Colors.button = "Cyaan";
+    void Blauw() => Colors.button = "Blauw";
+    void Magenta() => Colors.button = "Magenta";
+}
 
 
 

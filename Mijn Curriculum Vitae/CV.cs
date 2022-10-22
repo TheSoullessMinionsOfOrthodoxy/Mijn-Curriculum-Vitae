@@ -1,11 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Xml.Linq;
-using System.IO;
-using System.Text;
-using System;
-using System.Security.Cryptography.Xml;
-using System.Drawing;
-using Microsoft.VisualBasic;
+﻿using System.Xml.Linq;
+
 
 //
 // De c# motor van dit ding. Een verzameling classes met het gereedschap dat nodig is.
@@ -265,7 +259,7 @@ namespace Mijn_Curriculum_Vitae
     // Class die het echte werk doet bij het samenstellen van de kleurcombinaties
     ///////////////////////////////////////////////////
 
-    public class Colors
+    public class Colors : IColor
     {
         public static string button;
         
@@ -384,14 +378,23 @@ namespace Mijn_Curriculum_Vitae
         public static string Blauw{ get => "hsl(240, 100%, 50%);";}
 
         public static string Magenta{ get => "hsl(300, 100%, 50%);";}
+
+        public void BasisKleur()
+        {
+            basisKleur.ToString();
+        }
     }
     
 
 // we wilden graag een keer met een interface werken maar het was weer eens helemaal niet nodig. Toch gaan we hem nodig maken zodat we 
 // leren ermee te werken.
-public interface IColor
+interface IColor
 {
-    
+    void BasisKleur()
+    { 
+        
+        
+    }
 }
 
 
