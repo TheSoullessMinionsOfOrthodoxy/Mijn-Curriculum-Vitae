@@ -1,0 +1,54 @@
+﻿<div id="whitefont" style="background-color: none">
+    <fieldset id="fs">
+		<legend style="font-size:14px;"><span id="fs-span">&nbsp;&nbsp;@Curriculum.Voornaam&nbsp;@Curriculum.Tussenvoegsel&nbsp;@Curriculum.Achternaam&nbsp;&nbsp;</span></legend>
+        <table>
+			<tr>
+				<td colspan="2">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					@{
+		string[] arr = new string[] { "fat.jpg", "hurley.jpg", "bontmuts.jpg", "asdas.jpg", "wagner.jpg", "drevil.jpg", "austin.jpg", "austin.jpg", "melferrel.jpg", "fem.jpg", "son.jpg", "york.jpg", "austin.jpg", "mini.jpg" };
+						int pic = Rand.getRandom.Next(0, arr.Count()); 
+						if (arr[pic] == "bontmuts.jpg")
+						{
+							Curriculum.Achternaam = "sss";
+										<input type="hidden" @bind="Curriculum.Achternaam" />
+							
+						}
+					}
+					<input type="hidden" @bind="arr[pic]" /><img src=@arr[pic] alt="sss" />
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	<br />
+	<br />
+
+	<fieldset>
+		<legend style="font-size:14px"></legend>
+		<table>
+			<tr>
+				<td>Leeftijd:</td>
+				<td><input @bind="Curriculum.Leeftijd" /></td>
+			</tr>
+			<tr>
+				<td>Telefoon:</td>
+				<td><input @bind="Curriculum.Telefoon" /></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input @bind="Curriculum.Email" /></td>
+			</tr>
+		</table>
+	</fieldset>
+</div>
+
+@code {
+	[CascadingParameter]
+	public Curriculum Curriculum { get; set; }
+
+	[CascadingParameter]
+	public XMLData XmlData { get; set; }
+}

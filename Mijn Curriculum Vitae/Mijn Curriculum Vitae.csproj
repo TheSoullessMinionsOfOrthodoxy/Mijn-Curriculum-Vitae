@@ -9,10 +9,14 @@
 
   <ItemGroup>
     <Content Remove="CV_Edit\Css.razor" />
+    <Content Remove="CV_Edit\Dating.razor" />
     <Content Remove="CV_Edit\EditBackground.razor" />
     <Content Remove="CV_Edit\EditFront.razor" />
     <Content Remove="CV_Edit\EditLosseGegevens.razor" />
     <Content Remove="CV_Edit\EditMenu.razor" />
+    <Content Remove="CV_Edit\Functions.razor" />
+    <Content Remove="CV_Edit\Locatie.razor" />
+    <Content Remove="CV_Edit\Naam.razor" />
     <Content Remove="CV_Edit\Randodm.razor" />
     <Content Remove="Pages\Counter.razor" />
     <Content Remove="Pages\CV.razor" />

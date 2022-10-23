@@ -1,0 +1,36 @@
+﻿<div style="background-color: none">
+        <fieldset height="100%">
+            <legend>&nbsp;Naam&nbsp;</legend>
+            <table>
+                <tr>
+                    <td>Voornaam:</td>
+                    <td><input  @bind="Curriculum.Voornaam" /></td>
+                </tr>
+                <tr>
+                    <td>Tussenvoegsel:</td>
+                    <td><input  @bind="Curriculum.Tussenvoegsel" /></td>
+                </tr>
+                <tr>
+                    <td>Achternaam:</td>
+                    <td><input  @bind="Curriculum.Achternaam" /></td>
+                </tr>
+             </table>
+        </fieldset>
+</div>
+
+
+@code {
+    [CascadingParameter]
+    public Curriculum Curriculum { get; set; }
+
+    [CascadingParameter]
+    public XMLData XmlData { get; set; }
+
+
+
+	public static RenderFragment SayHello = @<h1>Hello!</h1>;
+
+
+
+
+}
