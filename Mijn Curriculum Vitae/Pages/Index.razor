@@ -61,6 +61,10 @@ img {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
+ img:hover {
+                transform: scale(1.1);
+				
+ }
 
 button {
     background-color: transparent;
@@ -82,12 +86,13 @@ button {
 }
 .container {
     position: absolute;
-	nowrap:wrap;
 	width: 95.5vmax;
 }
 
 .bg_grid-container {
     position: absolute;
+	align-content: center;
+	justify-content:center;
     top: 0px;
     z-index: 0;
     display: grid;
@@ -174,7 +179,7 @@ button {
 		font-size: 13px;
 		border-radius: 24px;
 		border: 1px solid rgb(100,100,100);
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		align-content: center;
 		justify-content: center;
 		margin-right: 20px
@@ -213,7 +218,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .minus {background-image: url(minus-white.png);}
@@ -263,11 +268,13 @@ input {
 .bg-item4  {background-color:hsl(@Top.basisKleurTegenover, 100%,@Rand.getRandom.Next(80,95)%) !important;}
 .bg-item5  {background-color:hsl(@Top.basisKleur_Min,  100%,@Rand.getRandom.Next(70,90)%) !important;}
 .bg-item6  {background-color:hsl(@Top.basisKleur_Min,  50%,@Rand.getRandom.Next(60,80)%) !important;}
-.bg-item7  {background-color:hsl(@Top.basisKleur_Min,  40%,@Rand.getRandom.Next(50,90)%) !important;}
+.bg-item7  {background-color:hsl(@Top.basisKleur_Min,  40%,@Rand.getRandom.Next(50,90)%) !important;
+border:dotted 15px hsl(@Top.basisKleurSL(50,53,15,17));}
 .bg-item8  {background-color:hsl(@Top.basisKleur_Min,  40%,@Rand.getRandom.Next(70,90)%) !important;}
 .bg-item9  {background-color:hsl(@Top.basisKleur_Min,  20%,@Rand.getRandom.Next(70,90)%) !important;}
-.bg-item10 {background-image:linear-gradient(hsl(@Top.basisKleurSL(30, 80, 20,90)), hsl(@Top.basisKleurSL(30, 80, 20, 90)));
-border:dotted 15px hsl(@Top.basisKleurSL(50,53,18,22));}
+.bg-item10 {
+	background-image:linear-gradient(hsl(@Top.basisKleurSL(30, 80, 70,90)), hsl(@Top.basisKleurSL(30, 80, 10, 20)));
+	}
 .bg-item11 {background-color:hsl(@Top.basisKleur_Min, 100%,@Rand.getRandom.Next(70,90)%) !important;}
 .bg-item12 {background-color:hsl(@Top.basisKleur_Min, 100%,@Rand.getRandom.Next(70,95)%) !important;}
 .bg-item13 {background-color:hsl(@Top.basisKleur_Min,  70%,@Rand.getRandom.Next(80,95)%) !important;}
@@ -278,7 +285,7 @@ border:dotted 15px hsl(@Top.basisKleurSL(50,53,18,22));}
 .btn-primary:hover {background-color: hsl(@(Top.basisKleur + 20), 100%, 50%);}
 
 #fs {
-	background-image: linear-gradient(to left top, hsl(@Top.basisKleurSL(30, 80, 20,90)), hsl(@Top.basisKleurSL(30, 80, 20, 90)));
+	background-image: linear-gradient(to left top, hsl(@Top.basisKleurSL(30, 80, 70, 90)), hsl(@Top.basisKleurSL(60, 80, 35,60)));
 }
 
 #fs-span {
@@ -304,6 +311,23 @@ border:dotted 15px hsl(@Top.basisKleurSL(50,53,18,22));}
 .nuance5 {background-color: hsl(@Top.basisKleurSL(40,80,75,85));}
 .nuance6 {background-color: hsl(@Top.basisKleurSL(40,80,88,95));}
 
+
+p > span {
+	@{
+		if (Rand.getRandom.Next(1,3) % 2 == 0)
+	{
+		<text>color:white;</text>
+	}
+	else
+	{
+		<text>color:black;</text>
+	}
+	}	
+
+	/*font-weight: bold;*/
+	font-size:14px;
+	/*text-shadow: 1px 1px rgb(140,140,140);*/
+}
 .houseofcolorsBEE{background-color:hsl(@Top.basisKleur,100%,50%);}
 .houseofcolorsHoC{background-color:hsl(@Top.basisKleurTegenover,100%,50%);}
 .houseofcolorsHusk{background-color:hsl(@Top.basisKleur_Plus,100%,50%);}
