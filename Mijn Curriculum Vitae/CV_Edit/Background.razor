@@ -1,0 +1,224 @@
+﻿@using System.Text
+
+<div class="bg-item1">
+	Verdwenen beroepen: @{
+		<text>@VerdwenenBeroepen(1);</text>
+		returnstring = "";
+}
+</div>
+
+<div class="bg-item2">
+	Verdwenen beroepen: @{
+		<text>@VerdwenenBeroepen(2);</text>
+		returnstring = "";
+}
+</div>
+
+<div class="bg-item3">
+	@{
+		<text>@PrintSlogans(2);</text>
+		returnstring = "";
+}
+</div>
+<div class="bg-item4"></div>
+
+<div class="bg-item5">
+	Verdwenen beroepen: @{
+		<text>@VerdwenenBeroepen(1);</text>
+		returnstring = "";
+}
+</div>
+
+<div class="bg-item6"></div>
+<div class="bg-item7"></div>
+
+<div class="bg-item8">
+	Verdwenen beroepen: @{
+		<text>@VerdwenenBeroepen(2);</text>
+		returnstring = "";
+}
+</div>
+
+<div class="bg-item9"></div>
+<div class="bg-item10"></div>
+
+<div class="bg-item11">
+	Verdwenen beroepen:	@{
+		<text>@VerdwenenBeroepen(1);</text>
+		returnstring = "";
+}
+</div>
+
+<div class="bg-item12"></div>
+<div class="bg-item13"></div>
+
+<div class="bg-item14">
+	Verdwenen beroepen:	@{
+		<text>@VerdwenenBeroepen(1);</text>
+		returnstring = "";
+}
+</div>
+
+<div class="bg-item15">
+	Verdwenen beroepen:	@{
+		<text>@VerdwenenBeroepen(1);</text>
+		returnstring = "";
+}
+</div>
+
+
+
+
+@code {
+
+	// Deze hard gecodeerde stringarray is natuurlijk helemaal fout in een bedrijfsmatige setting. Maar we gebruiken hem gewoon omdat
+	// hij hier werkt zonder dat we spatjes hoeven uit te halen met een database of xml file waar we dan de data uit zouden ophalen
+	// als we de hardcoding willen vermijden.
+	string[] beroepen = new string[]
+	{
+		"Aanspreker",
+		"Afhouder",
+		"Baker",
+		"Baljuw",
+		"Barbier",
+		"Bieleman",
+		"Boekventer",
+		"Brikkenbekker",
+		"Buntsteken",
+		"Chirurgijn",
+		"Crasseur",
+		"Doodbidder",
+		"Gemeentebode",
+		"Gezworene",
+		"Gladiator",
+		"Goudzoeker",
+		"Griendwerker",
+		"Halfer",
+		"Harelbeekse spijker",
+		"Hoefsmid",
+		"Hondenslager",
+		"IJkmeester",
+		"Inbakker",
+		"Kalverschetser",
+		"Kantonnier",
+		"Kiepkerel",
+		"Kinkenvoerder",
+		"Kolenboer",
+		"Eendenkooi",
+		"Kopiist",
+		"Korenmeter",
+		"Kraankind",
+		"Krasmeester",
+		"Landdrost",
+		"Lantaarnopsteker",
+		"Lattenklieven",
+		"Letterzetter",
+		"Librariër",
+		"Marconist",
+		"Marskramer",
+		"Melkboer",
+		"Melkmeisje",
+		"Min",
+		"Minstreel",
+		"Neerslager",
+		"Nieuwmarkters",
+		"Omtoor",
+		"Opprikkelateur",
+		"Orgeltrapper",
+		"Oude-jongen",
+		"Parlevinker",
+		"Peek",
+		"Persemier",
+		"Platlandicus",
+		"Plattelandsheelmeester",
+		"Porder",
+		"Programmeur Algol",
+		"Programmeur Basic",
+		"Programmeur Cobol",
+		"Provoost",
+		"Publicanus",
+		"Putjesschepper",
+		"Rattenvanger",
+		"Redger",
+		"Reepschieter",
+		"Rentmeester",
+		"Richter",
+		"Rotmeester",
+		"Scharensliep",
+		"Scheepsjager",
+		"Scheepsjongen",
+		"Schelpenvisser",
+		"Schepen",
+		"Scholaster",
+		"Schoolmeester",
+		"Schooltandarts",
+		"Schotter",
+		"Schout",
+		"Speeljongen",
+		"Spijkermaker",
+		"Stadsomroeper",
+		"Stenograaf",
+		"Stoker",
+		"Straatzanger",
+		"Stronttonnetjesschepper",
+		"Stuurmansmaat",
+		"Tabellioen",
+		"Telegrafist",
+		"Teuthandelaar",
+		"Tollenaar",
+		"Typiste WordPerfect",
+		"Veldwachter",
+		"Velleman",
+		"Vilder",
+		"Voddenman",
+		"Voorproever",
+		"Vorster",
+		"Vuurtorenwachter",
+		"Wachter",
+		"Wagenmaker",
+		"Wijnroeier",
+		"Zakkendrager"
+	};
+
+	string[] Slogans = new string[]
+	{
+		"Volhardend",
+		"Probleemoplosser",
+		"Creatief",
+		"Doener",
+		"teamplayer",
+		"enthousiast",
+		"Besluitvaardig",
+		"doorzetter",
+		"servicegericht",
+	};
+	string returnstring = "";
+	string returnAstring = "";
+	string VerdwenenBeroepen(int i)
+	{
+	StringBuilder sb = new StringBuilder();
+	for (i = 0; i < 1 * beroepen.Count(); i++)
+	{
+	sb.Append("  - ♰" + beroepen[Rand.getRandom.Next(0, beroepen.Count() - 1)]);
+	}
+	int a = sb.ToString().Count();
+
+	return sb.ToString();
+	}
+
+	string PrintSlogans(int i)
+	{
+	StringBuilder sb = new StringBuilder();
+	for (i = 0; i < 11 * Slogans.Count(); i++)
+	{
+	sb.Append(" - " + Slogans[Rand.getRandom.Next(0, Slogans.Count() - 1)]);
+	}
+	int a = sb.ToString().Count();
+
+	return sb.ToString();
+	}
+
+	[CascadingParameter]
+	public Colors Top { get; set; }
+
+}

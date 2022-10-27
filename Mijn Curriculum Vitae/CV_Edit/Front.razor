@@ -1,0 +1,101 @@
+﻿<header class="DataDrager-B" style="border:none;background:transparent;display: flex; align-content: flex-end; margin-right:20px;">
+	<br>
+	<form>
+		<div class="nuance6">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance5">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance4">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance3">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance2">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance1">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance2">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance3">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance4">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance5">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance6">&nbsp;&nbsp;&nbsp;</div>
+	</form>
+</header>
+
+<div class="DataDrager-A" style="background-color:none; display: flex; justify-content:  center;">
+	<div style="align-items: center; display: flex; justify-content: center;">
+		<CascadingValue Value="@Curriculum">
+			<CascadingValue Value="@XmlData">
+				<EditDating />
+			</CascadingValue>
+		</CascadingValue>
+	</div>
+</div>
+
+<div class="DataDrager-B" style="align-items: center; display: flex; justify-content: center;">
+	<CascadingValue Value="@Curriculum">
+		<CascadingValue Value="@XmlData">
+			<EditLocatie />
+		</CascadingValue>
+	</CascadingValue>
+
+	<CascadingValue Value="@Curriculum">
+		<CascadingValue Value="@XmlData">
+			<EditVrijetijdsbesteding />
+		</CascadingValue>
+	</CascadingValue>
+</div>
+
+<div class="DataDrager-B" style="align-items: center; display: flex; justify-content: center;">
+	<CascadingValue Value="@Curriculum">
+		<CascadingValue Value="@XmlData">
+			<EditWerkervaring />
+		</CascadingValue>
+	</CascadingValue>
+</div>
+
+<div class="DataDrager-B" style="align-items: center; display: flex; justify-content: center;">
+	<CascadingValue Value="@Curriculum">
+		<CascadingValue Value="@XmlData">
+			<EditOpleiding />
+		</CascadingValue>
+	</CascadingValue>
+</div>
+
+<div class="DataDrager-B" tyle="align-items: center; display: flex; justify-content: center;">
+	<CascadingValue Value="@Curriculum">
+		<CascadingValue Value="@XmlData">
+			<EditVaardigheden />
+		</CascadingValue>
+	</CascadingValue>
+</div>
+
+<div class="DataDrager-B" style="background-color: hsl(@Top.basisKleur_Plus,@Rand.getRandom.Next(20, 80)%,@Rand.getRandom.Next(10, 80)%);align-items: center; display: flex; justify-content: center;">
+	<CascadingValue Value="@Curriculum">
+		<CascadingValue Value="@XmlData">
+			<EditFunctions />
+		</CascadingValue>
+	</CascadingValue>
+</div>
+
+
+
+
+@code {
+
+
+
+	[CascadingParameter]
+	public Colors Top { get; set; }
+
+	[CascadingParameter]
+	public Curriculum Curriculum { get; set; }
+
+	[CascadingParameter]
+	public XMLData XmlData { get; set; }
+
+
+
+	// deze void methods zorgen ervoor dat de method Top.SetValues(Colors.button, 10) ook weten
+	// in welk kleurgebied de random basiskleur moet worden getrokken
+	void Rood() => Colors.button = "Rood";
+	void Oranje() => Colors.button = "oranje";
+	void Geel() => Colors.button = "Geel";
+	void Groen() => Colors.button = "Groen";
+	void Cyaan() => Colors.button = "Cyaan";
+	void Blauw() => Colors.button = "Blauw";
+	void Magenta() => Colors.button = "Magenta";
+}

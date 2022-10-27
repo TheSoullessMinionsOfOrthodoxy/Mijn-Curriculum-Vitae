@@ -23,7 +23,7 @@ table {
     width: 200px;
 }
 
-td {border: none;}
+td {border:none}
 
 a {
     font-size: 14px;
@@ -62,8 +62,7 @@ img {
     transform: scaleX(-1);
 }
  img:hover {
-                transform: scale(1.1);
-				
+    transform: scale(1.1);
  }
 
 button {
@@ -86,6 +85,7 @@ button {
     /*justify-content: flex-end;*/
     height: 3.5rem;
     align-items: center;
+	background-color: lightgray;
 }
 .container {
     position: absolute;
@@ -276,8 +276,8 @@ input {
 .bg-item2  {background-color:hsl(@Top.basisKleur_Min,  50%,@Rand.getRandom.Next(80,90)%) !important;}
 .bg-item3  {background-color:hsl(@Top.basisKleur_Min,  50%,@Rand.getRandom.Next(78,95)%) !important;}
 .bg-item4  {background-color:hsl(@Top.basisKleurTegenover, 100%,@Rand.getRandom.Next(80,95)%) !important;}
-.bg-item5  {background-color:hsl(@Top.basisKleur_Min,  60%,@Rand.getRandom.Next(80,90)%) !important;}
-.bg-item6  {background-color:hsl(@Top.basisKleur_Plus,  50%,@Rand.getRandom.Next(80,80)%) !important;}8
+.bg-item5  {background-color:hsl(@Top.basisKleur_Min,  60%,@Rand.getRandom.Next(20,30)%) !important;}
+.bg-item6  {background-color:hsl(@Top.basisKleur_Plus,  50%,@Rand.getRandom.Next(80,80)%) !important;}
 .bg-item8  {background-color:hsl(@Top.basisKleur_Min,  40%,@Rand.getRandom.Next(80,90)%) !important;}
 .bg-item9  {background-color:hsl(@Top.basisKleur_Min,  20%,@Rand.getRandom.Next(80,90)%) !important;}
 .bg-item11 {background-color:hsl(@Top.basisKleur_Min, 70%,@Rand.getRandom.Next(80,90)%) !important;}
@@ -301,7 +301,7 @@ input {
 
 .flex-container > .DataDrager-A {
 	background-color: hsl(@Top.basisKleurSL(20, 60, 20, 80));}
-.flex-container > .DataDrager-B  {
+.flex-container > .DataDrager-B {
 	background-color: hsl(@Top.basisKleurSL(20, 60, 20, 80));}
 .flex-container > .DataDrager-B  > div {
 	background-color: hsl(@Top.basisKleurSL(45, 60, 40, 42));}
@@ -337,39 +337,7 @@ p > span {
 
 </style>
 
-@*Wat is Blazor?
-	Het is de combinatie van Razor (server) en Browser(client).
-	Razor: scripting pakket (frame-work) van Microsoft voor samewerking tussen server- en clientsite code (html, css, javascript). Razor is PHP-achtig. Overigens is Razor maar een van de pakketten van Microsoft voor clientsite.
-	Terug naar Blazor. Blazer maakt het mogelijk om een hoop handige functionaliteiten van de server naar de client te verleggen. Met Blazor kun je veel javascript code overslaan omdat je rechtstreeks met de html Dom werkt. Deze technologie wordt ondersteund door alle grote browsers.
-	Html Dom? Dat is het binnenste van de browser. Tot voor kort het exclusieve domein van javascript maar nu is er met WASP een nieuwe speler erbij gekomen. Wasp?
-	Blazor is rommelig. Tenminste, als je het pas leert is het lastig om alles een beetje goed te structureren. Er zitten zoveel beperkingen in het op een pagina mogelijk maken van c#, html en css dat zelfs de auto format functie van vs 2022 het niet aankan.
-	Dat helpt natuurlijk niet mee om dit spul te leren.
-	Elke Razor pagina (xxx.razor) kan een eigen xxx.cs en een xxx.razor.css hebben. De css werkt dan exclusief voor die pagina. De cs file kan ook vanuit andere pagina's worden gebruikt.
-	Elke .razor file wordt een component genoemd. Je kunt vanuit een parent component childcomponenten aanroepen. Etc. Met allerlei functies waarvan we er pas een paar hebben verkend kun je heel ingewikkelde
-	apps bouwen die zo'n beetje alles doen wat je wil behalve de afwas en hond uitlaten. 	
-*@
-
 @{
-	// Hier begint het gegoochel met de kleuren. Uitgangspunt is om bij elke click op een van de gekleurde buttons op de site een kleurencombinatie 
-	// op het scherm te brengen van bij elkaar passende kleuren. 
-
-	// Hoe doe je dat? 
-	// Kleuren die direct naast elkaar liggen in de kleurencirkel vloeken niet met elkaar. Dit principe hebben 
-	// we in code verwerkt. Een random trekt een willekeurige kleur in het deelgebied dat door een van de gekleurde buttons op de site 
-	// vertegenwoordigd wordt. Dit is de basiskleur van het palet dat op het scherm gebruikt wordt. De code zorgt ervoor dat nog twee 
-	// kleuren worden toegevoegd aan het palet: de basiskleurplus en de basiskleurmin. De plus ligt aan de ene kant naast de
-	// basiskleur in de kleurencirkel en de min aan de andere kant. De method hieronder bepaalt hoever de kleuren plus en min uit elkaar liggen. 
-	// Hoe dichter ze bij elkaar liggen hoe kleiner de kleurverschillen. Deze kleuren komen op allerlei plaatsen terug op het scherm maar 
-	// ze worden wel telkens nog eens door de random onder handen genomen wat betreft verzadiging en helderheid. De kans dat je twee keer 
-	// hetzelfde kleurenpalet achter elkaar krijgt is zo klein dat het onwaarschijnlijk is dat je dit ooit zal meemaken. 
-	// Overigens kun je ook de tegenpool van de basiskleur nog gebruiken. Die wordt meteen ook aangemaakt en door de afstand van de plus 
-	// tot de min hoog te zetten kun je ook kleurcombi's krijgen die wel vloeken.
-
-	// De kleuren worden door de css gestuurd. We gebruiken hier niet de bekende rgb methode maar de hsl methode. H staat voor hue, 
-	// s voor saturation en l voor lightness. De hue kan een int zijn in de range 0-360 en vertegenwoordigt een van de 360 kleuren 
-	// uit de kleurcirkel. Met de hsl methode kun je dus vrij eenvoudig met code de kleuren op elkaar afstemmen. 
-	// Vraag: wie ziet niet de potentie van het door ons bedachte algoritme?  	
-
 	Top.SetValues(Colors.button, 30);
 	if (teller > 0)
 	{
@@ -387,224 +355,65 @@ p > span {
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX          HEADER          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-
 <div id="header" style="border-radius:24px;">
-	<p style="text-align: center;">
-		&nbsp;&nbsp;&nbsp;&nbsp; 
-	<select style="border-radius:18px" name="cars" id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
-		<span class="houseofcolorsBEE">&nbsp;&nbsp;<b>BEƎ-Ideas</b>&nbsp;&nbsp;&nbsp;</span>&nbsp;
-		<span class="houseofcolorsHoC">&nbsp;&nbsp;<b>H</b>ouse of <b>C</b>olors&nbsp;&nbsp;</span>&nbsp; 
-		<span class="houseofcolorsHusk">&nbsp;&nbsp;<b>H</b>uskensweg 17b&nbsp;&nbsp;</span>&nbsp;
-		<span class="houseofcolorsHeerlen">&nbsp;&nbsp;<b>H</b>eerlen&nbsp;&nbsp;</span>&nbsp;
-		<span class="houseofcolorsBEE">&nbsp;&nbsp;basiskleur:@Top.basisKleur&nbsp;&nbsp;</span>&nbsp;
-		<span class="houseofcolorsHoC">&nbsp;&nbsp;tegenoverliggende kleur:@Top.basisKleurTegenover&nbsp;&nbsp;</span>&nbsp;
-		<span class="houseofcolorsHusk">&nbsp;&nbsp;basiskleur Plus:@Top.basisKleur_Plus&nbsp;&nbsp;</span>&nbsp;
-		<span class="houseofcolorsHeerlen">&nbsp;&nbsp;basiskleur Min: @Top.basisKleur_Min&nbsp;&nbsp;</span>
-		<button class="plus" @onclick="ShowLinks">&nbsp;</button>
-		<button style="border-radius: 24px; background-color:white" @onclick="Save">Save</button>
-		
-	</p>
-
-	@{/*<div id="hidden">sssssssssssssssssssssss</div>*/
-
-		}
+	<CascadingValue Value="@Top">
+		<Header />
+	</CascadingValue>
+	<button class="plus" @onclick="ShowLinks">&nbsp;</button>
+	<button style="border-radius: 24px; background-color:white" @onclick="Save">Save</button>
 </div>
-
-
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    CONTAINER WAAR ALLES INZIT   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-
 <div class="container">
-
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX    ACHTERGROND DIV die met css grid werkt  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-	
-<div class="bg_grid-container">      
-		<div class="bg-item1">
-			Verdwenen beroepen:
-			@{<text>@VerdwenenBeroepen(1);</text>returnstring = "";}
-		</div>
-
-		<div class="bg-item2">
-			Verdwenen beroepen:
-			@{<text>@VerdwenenBeroepen(2);</text>returnstring = "";}
-		</div>
-
-		<div class="bg-item3">
-
-		@{<text>@PrintSlogans(2);</text>returnstring = "";}
-		
-		</div>
-		<div class="bg-item4"></div>
-
-		<div class="bg-item5">
-			Verdwenen beroepen:
-			@{<text>@VerdwenenBeroepen(1);</text>returnstring = "";}
-		</div>
-
-		<div class="bg-item6"></div>
-		<div class="bg-item7"></div>
-
-		<div class="bg-item8">
-			Verdwenen beroepen:
-			@{<text>@VerdwenenBeroepen(2);</text>returnstring = "";}	
-		</div>
-
-		<div class="bg-item9"></div>
-		<div class="bg-item10"></div>
-
-		<div class="bg-item11">
-			Verdwenen beroepen:
-			@{<text>@VerdwenenBeroepen(1);</text>returnstring = "";}
-		</div>
-
-		<div class="bg-item12"></div>
-		<div class="bg-item13"></div>
-
-		<div class="bg-item14">
-			Verdwenen beroepen:
-			@{<text>@VerdwenenBeroepen(1);</text>returnstring = "";}
-		</div>
-
-		<div class="bg-item15">
-			Verdwenen beroepen:
-			@{<text>@VerdwenenBeroepen(1);</text>returnstring = "";}
-		</div>
-	</div>
-
+<div class="bg_grid-container">   
+	<CascadingValue Value="@Top">
+		<Background />
+	</CascadingValue>
+</div>
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  VOORGROND DIV die met css flexbox werkt  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-
-	<div class="flex-container" style="padding-top:30px;"> 
-		<header class="DataDrager-B" style="margin-right:20px">
-			<div class="divcolorbuttons">
-				<input type="hidden" @bind="Top.basisKleur" />
-				<button style="background-color:@Colors.Rood" class="btn-primary" @onclick="Rood">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-			</div>
-			<div class="divcolorbuttons">
-				<button style="background-color:@Colors.Geel;" class="btn-primary"	@onclick="Geel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-			</div>
-			<div class="divcolorbuttons">
-				<button style="background-color:@Colors.Groen" class="btn-primary" @onclick="Groen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-			</div>
-			<div class="divcolorbuttons">
-				<button style="background-color:@Colors.Cyaan" class="btn-primary" @onclick="Cyaan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-			</div>
-			<div class="divcolorbuttons">
-				<button style="background-color:@Colors.Blauw" class="btn-primary" @onclick="Blauw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-			</div>
-			<div class="divcolorbuttons">
-				<button style="background-color:@Colors.Magenta" class="btn-primary" @onclick="Magenta">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-			</div>
-		</header>
-
-		<header class="DataDrager-B" style="border:none;background:transparent;display: flex; align-content: flex-end; margin-right:20px;">
-			<br>
-			<form>
-				<div class="nuance6">&nbsp;&nbsp;&nbsp;</div>
-				<div class="nuance5">&nbsp;&nbsp;&nbsp;</div>
-				<div class="nuance4">&nbsp;&nbsp;&nbsp;</div>
-				<div class="nuance3">&nbsp;&nbsp;&nbsp;</div>
-				<div class="nuance2">&nbsp;&nbsp;&nbsp;</div>
-				<div class="nuance1">&nbsp;&nbsp;&nbsp;</div>
-				<div class="nuance2">&nbsp;&nbsp;&nbsp;</div>
-				<div class="nuance3">&nbsp;&nbsp;&nbsp;</div>
-				<div class="nuance4">&nbsp;&nbsp;&nbsp;</div>
-				<div class="nuance5">&nbsp;&nbsp;&nbsp;</div>
-				<div class="nuance6">&nbsp;&nbsp;&nbsp;</div>
-			</form>
-		</header>
-
-@{
-	// De onderstaande tags zijn Blazor tags die ervoor zorgen dat de objecten die nodig zijn om de data op de juiste plek te zetten 
-	// worden doorgegeven aan EditDating. EditDating is een stukje html met c# variabelen dat op de plek van de tag ingelezen wordt.
-	// 
-	// <CascadingValue Value="@Curriculum">
-	//				<CascadingValue Value="@XmlData">
-	//					<EditDating />
-	//				</CascadingValue>
-	//</CascadingValue>
-
-	// De onderstaande Blazor tags zorgen ervoor dat alles op de plek komt die we willen. De verschillende bestanden die worden
-	// ingelezen worden componenten genoemend. Wat er in een component staat en waar je hem gebruikt bepaal je zelf. Dat is in een 
-	// notedop hoe Blazor (maar ook Angular werkt).
-}
-
-		<div class="DataDrager-A" style="background-color:none; display: flex; justify-content:  center;">
-			<div style="align-items: center; display: flex; justify-content: center;">
-				<CascadingValue Value="@Curriculum">
-					<CascadingValue Value="@XmlData">
-						<EditDating />
-					</CascadingValue>
-				</CascadingValue>
-			</div>
-		</div>
-
-		<div class="DataDrager-B" style="align-items: center; display: flex; justify-content: center;">
-			<CascadingValue Value="@Curriculum">
-				<CascadingValue Value="@XmlData">
-					<EditLocatie />
-				</CascadingValue>
-			</CascadingValue>
-
-			<CascadingValue Value="@Curriculum">
-				<CascadingValue Value="@XmlData">
-					<EditVrijetijdsbesteding />
-				</CascadingValue>
-			</CascadingValue>
-		</div>
-
-		<div class="DataDrager-B" style="align-items: center; display: flex; justify-content: center;">
-			<CascadingValue Value="@Curriculum">
-				<CascadingValue Value="@XmlData">
-					<EditWerkervaring />
-				</CascadingValue>
-			</CascadingValue>
-		</div>
-
-		<div class="DataDrager-B" style="align-items: center; display: flex; justify-content: center;">
-			<CascadingValue Value="@Curriculum">
-				<CascadingValue Value="@XmlData">
-					<EditOpleiding />
-				</CascadingValue>
-			</CascadingValue>
-		</div>
-
-		<div class="DataDrager-B" tyle="align-items: center; display: flex; justify-content: center;">
-			<CascadingValue Value="@Curriculum">
-				<CascadingValue Value="@XmlData">
-					<EditVaardigheden />
-				</CascadingValue>
-			</CascadingValue>
-		</div>
-
-		<div class="DataDrager-B" style="background-color: hsl(@Top.basisKleur_Plus,@Rand.getRandom.Next(20, 80)%,@Rand.getRandom.Next(10, 80)%);align-items: center; display: flex; justify-content: center;">
-			<CascadingValue Value="@Curriculum">
-				<CascadingValue Value="@XmlData">
-				<EditFunctions />
-				</CascadingValue>
-			</CascadingValue>
-		</div>
+<div class="flex-container" style="padding-top:30px;"> 
+	<header class="DataDrager-B" style="margin-right:20px">
+	<div class="divcolorbuttons">
+		<input type="hidden" @bind="Top.basisKleur" />
+		<button style="background-color:@Colors.Rood" class="btn-primary" @onclick="Rood">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 	</div>
-				<br />
-		
+	<div class="divcolorbuttons">
+		<button style="background-color:@Colors.Geel;" class="btn-primary" @onclick="Geel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 	</div>
-
+	<div class="divcolorbuttons">
+		<button style="background-color:@Colors.Groen" class="btn-primary" @onclick="Groen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div>
+	<div class="divcolorbuttons">
+		<button style="background-color:@Colors.Cyaan" class="btn-primary" @onclick="Cyaan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div>
+	<div class="divcolorbuttons">
+		<button style="background-color:@Colors.Blauw" class="btn-primary" @onclick="Blauw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div>
+	<div class="divcolorbuttons">
+		<button style="background-color:@Colors.Magenta" class="btn-primary" @onclick="Magenta">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+	</div>
+</header>
+	<CascadingValue Value="@Top">	
+		<CascadingValue Value="@Curriculum">
+			<CascadingValue Value="@XmlData">
+				<Front />
+			</CascadingValue>
+		</CascadingValue>
+	</CascadingValue>
+</div>
+	<br />
+</div>
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX C# CODE CODE CODE CODE CODE CODE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-
 	@code
  {
-
 	string[] aa = new string[] { "Joe", "Krimlin", "Trump", "Lies" };
 	///////////// FIELDS ////////////////////////////////////////////////////////
     ///////////// FIELDS ////////////////////////////////////////////////////////
@@ -614,135 +423,8 @@ p > span {
     XMLData XmlData;
     public Curriculum Curriculum;
 
-    public Rand RandColor;
-
-    string returnstring = "";
-    string returnAstring = "";
-
-    // Deze hard gecodeerde stringarray is natuurlijk helemaal fout in een bedrijfsmatige setting. Maar we gebruiken hem gewoon omdat 
-    // hij hier werkt zonder dat we spatjes hoeven uit te halen met een database of xml file waar we dan de data uit zouden ophalen
-    // als we de hardcoding willen vermijden.
-    string[] beroepen = new string[]
-    {
-		"Aanspreker",
-		"Afhouder",
-		"Baker",
-		"Baljuw",
-		"Barbier",
-		"Bieleman",
-		"Boekventer",
-		"Brikkenbekker",
-		"Buntsteken",
-		"Chirurgijn",
-		"Crasseur",
-		"Doodbidder",
-		"Gemeentebode",
-		"Gezworene",
-		"Gladiator",
-		"Goudzoeker",
-		"Griendwerker",
-		"Halfer",
-		"Harelbeekse spijker",
-		"Hoefsmid",
-		"Hondenslager",
-		"IJkmeester",
-		"Inbakker",
-		"Kalverschetser",
-		"Kantonnier",
-		"Kiepkerel",
-		"Kinkenvoerder",
-		"Kolenboer",
-		"Eendenkooi",
-		"Kopiist",
-		"Korenmeter",
-		"Kraankind",
-		"Krasmeester",
-		"Landdrost",
-		"Lantaarnopsteker",
-		"Lattenklieven",
-		"Letterzetter",
-		"Librariër",
-		"Marconist",
-		"Marskramer",
-		"Melkboer",
-		"Melkmeisje",
-		"Min",
-		"Minstreel",
-		"Neerslager",
-		"Nieuwmarkters",
-		"Omtoor",
-		"Opprikkelateur",
-		"Orgeltrapper",
-		"Oude-jongen",
-		"Parlevinker",
-		"Peek",
-		"Persemier",
-		"Platlandicus",
-		"Plattelandsheelmeester",
-		"Porder",
-		"Programmeur Algol",
-		"Programmeur Basic",
-		"Programmeur Cobol",
-		"Provoost",
-		"Publicanus",
-		"Putjesschepper",
-		"Rattenvanger",
-		"Redger",
-		"Reepschieter",
-		"Rentmeester",
-		"Richter",
-		"Rotmeester",
-		"Scharensliep",
-		"Scheepsjager",
-		"Scheepsjongen",
-		"Schelpenvisser",
-		"Schepen",
-		"Scholaster",
-		"Schoolmeester",
-		"Schooltandarts",
-		"Schotter",
-		"Schout",
-		"Speeljongen",
-		"Spijkermaker",
-		"Stadsomroeper",
-		"Stenograaf",
-		"Stoker",
-		"Straatzanger",
-		"Stronttonnetjesschepper",
-		"Stuurmansmaat",
-		"Tabellioen",
-		"Telegrafist",
-		"Teuthandelaar",
-		"Tollenaar",
-		"Typiste WordPerfect",
-		"Veldwachter",
-		"Velleman",
-		"Vilder",
-		"Voddenman",
-		"Voorproever",
-		"Vorster",
-		"Vuurtorenwachter",
-		"Wachter",
-		"Wagenmaker",
-		"Wijnroeier",
-		"Zakkendrager"
-    };
-
-    string[] Slogans = new string[]
-    {
-		"Volhardend",
-		"Probleemoplosser",
-		"Creatief",
-		"Doener",
-		"teamplayer",
-		"enthousiast",
-		"Besluitvaardig",
-		"doorzetter",
-		"servicegericht",
-    };
-
     // Het object dat bij elke klik opnieuw wordt aangemaakt en het kleurenpalet bevat
-    Colors Top = new Colors();
+    public Colors Top = new Colors();
 
     string hidden = @"#hidden\{visibility:hidden; display:none; \}";
 
@@ -787,44 +469,20 @@ p > span {
 
     // de onderstaande 2 methods zorgen ervoor dat de divs in de background div worden gevuld met willekeurig getrokken strings uit de 
     // hierboven gedefinieerde stringarrays.
-    string VerdwenenBeroepen(int i)
-    {
-		StringBuilder sb = new StringBuilder();
-		for (i = 0; i < 1 * beroepen.Count(); i++)
-		{
-			sb.Append("  - ♰" + beroepen[Rand.getRandom.Next(0, beroepen.Count() - 1)]);
-		}
-		int a = sb.ToString().Count();
-
-		return sb.ToString();
-    }
-
-    string PrintSlogans(int i)
-    {
-		StringBuilder sb = new StringBuilder();
-		for (i = 0; i < 11 * Slogans.Count(); i++)
-		{
-			sb.Append(" - " + Slogans[Rand.getRandom.Next(0, Slogans.Count() - 1)]);
-		}
-		int a = sb.ToString().Count();
-
-		return sb.ToString();
-    }
 
     ////////////////////////////////////////////////////////////////////////////
     // Object Curriculum wordt omgezet naar XML - XML wordt naar file geschreven
     ////////////////////////////////////////////////////////////////////////////
     private void Save() => XmlData.Save(Curriculum);
 
-    // deze void methods zorgen ervoor dat de method Top.SetValues(Colors.button, 10) ook weten 
-    // in welk kleurgebied de random basiskleur moet worden getrokken  
-    void Rood() => Colors.button = "Rood";
-    void Oranje() => Colors.button = "oranje";
-    void Geel() => Colors.button = "Geel";
-    void Groen() => Colors.button = "Groen";
-    void Cyaan() => Colors.button = "Cyaan";
-    void Blauw() => Colors.button = "Blauw";
-    void Magenta() => Colors.button = "Magenta";
+	void Rood() => Colors.button = "Rood";
+	void Oranje() => Colors.button = "oranje";
+	void Geel() => Colors.button = "Geel";
+	void Groen() => Colors.button = "Groen";
+	void Cyaan() => Colors.button = "Cyaan";
+	void Blauw() => Colors.button = "Blauw";
+	void Magenta() => Colors.button = "Magenta";
+
 
 	}
 

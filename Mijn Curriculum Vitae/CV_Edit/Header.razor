@@ -1,0 +1,51 @@
+﻿
+
+	<table style="width:90% !important; align-content:flex-start">
+		<tr>
+			<td style="widht:10%">
+				<select style="border-radius:18px" name="cars" id="cars">
+					<option value="volvo">Volvo</option>
+					<option value="saab">Saab</option>
+					<option value="mercedes">Mercedes</option>
+					<option value="audi">Audi</option>
+				</select>
+			</td>
+			<td style="widht:10%"><span class="houseofcolorsBEE">&nbsp;&nbsp;<b>BEƎ-Ideas</b>&nbsp;&nbsp;&nbsp;</span>&nbsp;</td>
+			<td style="widht:10%"><span class="houseofcolorsHoC">&nbsp;&nbsp;<b>H</b>ouse of <b>C</b>olors&nbsp;&nbsp;</span>&nbsp;</td>
+			<td style="widht:10%"><span class="houseofcolorsHusk">&nbsp;&nbsp;<b>H</b>uskensweg 17b&nbsp;&nbsp;</span>&nbsp;</td>
+		<td style="widht:10%"><span class="houseofcolorsHeerlen">&nbsp;&nbsp;<b>H</b>eerlen&nbsp;&nbsp;</span>&nbsp;</td>
+
+
+		<td style="widht:10%"><span class="houseofcolorsBEE" style="width:26px">&nbsp;&nbsp;basis: @kleurwaarde(Top.basisKleur)&nbsp;&nbsp;</span>&nbsp;</td>
+		<td style="widht:10%"><span class="houseofcolorsHoC" style="width:26px">&nbsp;&nbsp;contrast: @kleurwaarde(Top.basisKleurTegenover)&nbsp;&nbsp;</span>&nbsp;</td>
+		<td style="widht:10%"><span class="houseofcolorsHusk" style="width:26px">&nbsp;&nbsp;basis+: @kleurwaarde(Top.basisKleur_Plus)&nbsp;&nbsp;</span>&nbsp;</td>
+		<td style="widht:10%"><span class="houseofcolorsHeerlen" style="width:26px">&nbsp;&nbsp;basis-: @kleurwaarde(Top.basisKleur_Min)&nbsp;&nbsp;</span></td>
+	</tr>	
+	</table>
+
+
+
+
+@code {
+
+	string kleurwaarde(int kw)
+	{
+	string r = "";
+	if (kw.ToString().Length == 1)
+	{
+	r += "00";
+
+	}
+	else if (kw.ToString().Length == 2)
+	{
+	r += "0";
+	}
+	return r + kw.ToString();
+	}
+
+	[CascadingParameter]
+	public Colors Top { get; set; }
+
+    [CascadingParameter]
+    public Curriculum Curriculum { get; set; }
+}
