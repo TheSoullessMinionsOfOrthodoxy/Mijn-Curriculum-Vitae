@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="CV_Edit\Css.razor" />
     <Content Remove="CV_Edit\EditBackground.razor" />
     <Content Remove="CV_Edit\EditFront.razor" />
     <Content Remove="CV_Edit\EditLosseGegevens.razor" />

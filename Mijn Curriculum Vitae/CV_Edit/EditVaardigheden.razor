@@ -1,35 +1,33 @@
 ﻿<div id="whitefont">
 
-	@foreach (Vaardigheden item in Curriculum.LijstVaardigheden)
-     {        
-		 <br />
-        <div>
-            <fieldset>
-                <legend>&nbsp;Kennis en Vaardigheden&nbsp;</legend>
-                <table>
-                    <tr>
-					<td>&nbsp;&nbsp;&nbsp;Omschrijving</td>
-                        <td><input @bind="item.Omschrijving" /></td>
-					<td>
-						<button class="minus" @onclick="() => Delete(item)">&nbsp;</button>
-					</td>
-                    </tr>
-                    <tr>
-					<td>&nbsp;&nbsp;&nbsp;Toelichting</td>
-                        <td><input @bind="item.Toelichting" /></td>
-						<td></td>
-
-                    </tr>
-                </table>
-            </fieldset>
-        </div>
-     }
+@foreach (Vaardigheden item in Curriculum.LijstVaardigheden)
+    {        
+	<br />
+    <div>
+        <fieldset>
+            <legend>&nbsp;Kennis en Vaardigheden&nbsp;</legend>
+            <table>
+                <tr>
+				<td>&nbsp;&nbsp;&nbsp;Omschrijving</td>
+                    <td><input @bind="item.Omschrijving" /></td>
+				<td>
+					<button class="minus" @onclick="() => Delete(item)">&nbsp;</button>
+				</td>
+                </tr>
+                <tr>
+				<td>&nbsp;&nbsp;&nbsp;Toelichting</td>
+                    <td><input @bind="item.Toelichting" /></td>
+					<td></td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+    }
 	 <div>
 		<span style="float:right">
 			<button class="plus" @onclick="Add">&nbsp;</button>
 		</span>
 	</div>
-
 </div>
 
 

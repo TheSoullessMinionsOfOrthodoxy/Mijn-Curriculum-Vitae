@@ -1,0 +1,370 @@
+﻿@using System.Text
+<style>
+	body {
+    display: block;
+    margin: 0px;
+}
+
+table {
+    border-radius: 4px;
+    border: none;
+    width: 200px;
+}
+
+td {border:none}
+
+a {
+    font-size: 14px;
+    text-decoration:none !important;
+}
+    a:link {color: black;}
+    a:visited {color: black;}
+
+input {
+    padding-left: 13px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+	height: 14px;
+    width: 180px;
+}
+
+    input[type=text]:focus {border: 1px solid #000;}
+
+fieldset {
+    border-radius: 24px;
+    border-width: 2px;
+	margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+}
+
+img {
+    border-radius: 24%;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+ img:hover {
+    transform: scale(1.1);
+ }
+
+button {
+    background-color: transparent;
+    border: none;
+    align-items: center;
+}
+
+#header {
+	margin-top:4px;
+	margin-bottom:4px;
+    padding: 10px;
+    padding-left: 2rem !important;
+    padding-right: 1.5rem !important;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border: 1px solid #d6d5d5;
+	border-style:solid;
+    /*justify-content: flex-end;*/
+    height: 3.5rem;
+    align-items: center;
+	background-color: lightgray;
+}
+.container {
+    position: absolute;
+	width: 95.5vmax;
+}
+
+.bg_grid-container {
+    position: absolute;
+	align-content: center;
+	justify-content:center;
+    top: 0px;
+    z-index: 0;
+    display: grid;
+    gap: 30px;    
+    padding: 30px;
+    border-radius: 24px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	@grid_template_areas()
+}
+
+    .bg_grid-container > div {
+        display: flex;
+		align-items: center;
+        flex-wrap: wrap;
+        padding: 20px;
+        font-size: 11px;
+        border-radius: 30px;
+        text-align: left;
+        flex-direction: column;
+    }
+
+.bg-item1, .bg-item2, .bg-item3, .bg-item4, .bg-item5, .bg-item6, .bg-item7, .bg-item8, .bg-item9, .bg-item10, .bg-item11, .bg-item12, .bg-item13, .bg-item14, .bg-item15 {
+	display:flex;
+	align-content:center;
+}
+
+.bg-item1 {grid-area: item1;}
+.bg-item2 {grid-area: item2;}
+.bg-item3 {grid-area: item3;}
+.bg-item4 {grid-area: item4;}
+.bg-item5 {grid-area: item5;}
+.bg-item6 {grid-area: item6;}
+.bg-item7 {grid-area: item7;}
+.bg-item8 {grid-area: item8;}
+.bg-item9 {grid-area: item9;}
+.bg-item10 {grid-area: item10;}
+.bg-item11 {grid-area: item11;}
+.bg-item12 {grid-area: item12;}
+.bg-item13 {grid-area: item13;}
+.bg-item14 {grid-area: item14;}
+.bg-item15 {grid-area: item15;}
+
+.btn-primary {
+    color: #000;
+    padding: 17px;
+    /*width: 90px;*/
+    border: 1px solid;
+    border-color: gray;
+    border-radius: 24px;
+}
+
+    .btn-primary:hover {transform: scale(0.7);}
+
+.flex-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 3;
+    display: flex;
+	flex-wrap: wrap;
+    padding-bottom: 15px;
+	align-items: center;
+    justify-content: center;
+    background-color: none;
+    border-radius: 24px;
+}
+
+    .flex-container > .DataDrager-A {
+        margin: 10px;
+        padding: 15px;
+        font-size: 13px;
+        border-radius: 24px;
+        border: 1px solid rgb(100,100,100);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+	.flex-container > .DataDrager-B  {
+		display: flex;
+		flex-direction: column;
+		margin: 10px;
+		padding: 15px;
+		font-size: 13px;
+		border-radius: 24px;
+		border: 1px solid rgb(100,100,100);
+		box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		align-content: center;
+		justify-content: center;
+		margin-right: 20px
+}
+			.flex-container > .DataDrager-B  > div {
+            margin: 10px;
+            font-size: 13px;
+            border-radius: 24px;
+            border: 1px solid rgb(100,100,100);
+        }
+
+            .flex-container > header > div:hover {
+                transform: scale(1.1);
+            }
+
+#whitefont{
+	color: white;
+	border: 1px black;
+}
+
+.basic {
+    display: flex;
+    padding: 15px;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.DataDrager-B {
+    display: flex;
+    padding: 15px;
+    align-content: center;
+    justify-content: center;
+    margin-right: 20px
+}
+
+.DataDrager-C {
+	border:none;
+	padding: 15px;
+	background:transparent;
+	align-content:flex-end; 
+	margin-right:20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+	box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 24px;
+}
+
+.minus {background-image: url(minus-white.png);}
+.plus {background-image: url(plus-circle.png);}
+
+
+.divcolorbuttons {
+    margin: 5px;
+    padding: 12px;
+    font-size: 13px;
+    border-radius: 24px;
+    border: 1px solid rgb(100,100,100);
+}
+
+.nuance1, .nuance2, .nuance3, .nuance4, .nuance5, .nuance6 {
+    border: 1px solid rgb(100,100,100);
+    padding: 12px;
+    width: 15px;
+    height: 15px;
+    border-radius: 55%;
+    margin: 5px;
+}
+
+.houseofcolorsBEE, .houseofcolorsHoC, .houseofcolorsHusk, .houseofcolorsHeerlen{
+	padding:5px;
+	border-radius: 18px 0px;
+}
+
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  KLEUREN    KLEUREN  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  KLEUREN  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  KLEUREN    KLEUREN  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  KLEUREN  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+input {
+	background-color: hsl(@Top.basisKleur,100%,90%);;
+}
+.bg_grid-container {
+	background-color: hsl(@Top.basisKleurSL(50,53,18,22));
+	/*border:dotted 15px white;*/}
+.bg_grid-container > div {
+	background-color: hsl(@Top.basisKleurSL(60,65,90,95));
+	color: hsl(@Top.basisKleur_Min,77%,65%); 
+}
+
+.bg-item7  {
+	background-color:hsl(@Top.basisKleur_Min,  40%,@Rand.getRandom.Next(80,90)%) !important;
+	border:dotted 15px hsl(@Top.basisKleurSL(50,53,15,17));}
+.bg-item10 {
+	background-image:linear-gradient(hsl(@Top.basisKleurSL(30, 80, 70,90)), hsl(@Top.basisKleurSL(30, 80, 10, 20)));
+	}
+.bg-item1  {background-color:hsl(@Top.basisKleur_Min,  40%,@Rand.getRandom.Next(80,95)%) !important;}
+.bg-item2  {background-color:hsl(@Top.basisKleur_Min,  50%,@Rand.getRandom.Next(80,90)%) !important;}
+.bg-item3  {background-color:hsl(@Top.basisKleur_Min,  50%,@Rand.getRandom.Next(78,95)%) !important;}
+.bg-item4  {background-color:hsl(@Top.basisKleurTegenover, 100%,@Rand.getRandom.Next(80,95)%) !important;}
+.bg-item5  {background-color:hsl(@Top.basisKleur_Min,  60%,@Rand.getRandom.Next(20,30)%) !important;}
+.bg-item6  {background-color:hsl(@Top.basisKleur_Plus,  50%,@Rand.getRandom.Next(80,80)%) !important;}
+.bg-item8  {background-color:hsl(@Top.basisKleur_Min,  40%,@Rand.getRandom.Next(80,90)%) !important;}
+.bg-item9  {background-color:hsl(@Top.basisKleur_Min,  20%,@Rand.getRandom.Next(80,90)%) !important;}
+.bg-item11 {background-color:hsl(@Top.basisKleur_Min, 70%,@Rand.getRandom.Next(80,90)%) !important;}
+.bg-item12 {background-color:hsl(@Top.basisKleur_Min, 60%,@Rand.getRandom.Next(80,95)%) !important;}
+.bg-item13 {background-color:hsl(@Top.basisKleur_Min,  70%,@Rand.getRandom.Next(80,95)%) !important;}
+.bg-item14 {background-color:hsl(@Top.basisKleur_Min,  70%,@Rand.getRandom.Next(80,90)%) !important;}
+.bg-item15 {background-color:hsl(@Top.basisKleur_Min, 60%,@Rand.getRandom.Next(80,90)%) !important;}
+
+.btn-primary {background-color: hsl(@Top.basisKleurSL(98,101,48,52));} 
+.btn-primary:hover {background-color: hsl(@(Top.basisKleur + 20), 100%, 50%);}
+
+#fs {
+	background-image: linear-gradient(to left top, hsl(@Top.basisKleurSL(30, 80, 70, 90)), hsl(@Top.basisKleurSL(60, 80, 35,60)));
+}
+
+#fs-span {
+	padding:2px;
+	border-radius:10px;
+	background-color:hsl(@Top.basisKleurSL(50, 60, 20, 30));
+}
+
+.flex-container > .DataDrager-A {
+	background-color: hsl(@Top.basisKleurSL(20, 60, 20, 80));}
+.flex-container > .DataDrager-B {
+	background-color: hsl(@Top.basisKleurSL(20, 60, 20, 80));}
+.flex-container > .DataDrager-B  > div {
+	background-color: hsl(@Top.basisKleurSL(45, 60, 40, 42));}
+
+.divcolorbuttons {background-color: hsl(@Top.basisKleurSL(20,70,20,80));} 
+
+.nuance1 {background-color: hsl(@Top.basisKleurSL(49,80,15,25));}
+.nuance2 {background-color: hsl(@Top.basisKleurSL(40,80,30,40));}
+.nuance3 {background-color: hsl(@Top.basisKleurSL(40,80,45,55));}
+.nuance4 {background-color: hsl(@Top.basisKleurSL(40,80,60,70));}
+.nuance5 {background-color: hsl(@Top.basisKleurSL(40,80,75,85));}
+.nuance6 {background-color: hsl(@Top.basisKleurSL(40,80,88,95));}
+
+p > span {
+	@{	// text in header 
+		if (Rand.getRandom.Next(1,3) % 2 == 0)
+			{<text>color:white;</text>}
+		else
+			{<text>color:black;</text>}
+	}	
+	font-size:0.9vmax;
+	/*font-weight: bold;*/
+	/*text-shadow: 1px 1px rgb(140,140,140);*/
+}
+
+.houseofcolorsBEE{background-color:hsl(@Top.basisKleur,100%,50%);}
+.houseofcolorsHoC{background-color:hsl(@Top.basisKleurTegenover,100%,50%);}
+.houseofcolorsHusk{background-color:hsl(@Top.basisKleur_Plus,100%,50%);}
+.houseofcolorsHeerlen{background-color:hsl(@Top.basisKleur_Min,100%,50%);}
+
+
+
+</style>
+
+
+
+@code {
+	[CascadingParameter]
+	public Colors Top { get; set; }
+
+	    // zorgt voor een random in de css achtergrond grid
+    string grid_template_areas()
+    { 
+		StringBuilder sb = new();
+		List<string> gridItems = new List<string> {
+		"item1",
+		"item2",
+		"item3",
+		"item4",
+		"item5",
+		"item6",
+		"item7",
+		"item8",
+		"item9",
+		"item10",
+		"item11",
+		"item12",
+		"item13",
+		"item14"
+		};
+		int count = gridItems.Count();
+		sb.Append("grid-template-areas: ");
+		for (int i = 0; i < count; i++)
+		{
+			string weg = gridItems[Rand.getRandom.Next(0, count - i)];
+			sb.Append($"\"" + weg + $"\"");
+			gridItems.Remove(weg);
+		}
+		sb.Append($"\"" + "item15" + $"\"" + ";");
+		return sb.ToString();
+		}
+}

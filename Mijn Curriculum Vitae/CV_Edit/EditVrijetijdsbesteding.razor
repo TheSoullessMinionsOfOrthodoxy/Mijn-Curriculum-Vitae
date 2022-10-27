@@ -1,24 +1,24 @@
 ﻿<div style="" id="whitefont" class="above">
-        <fieldset>
-            <legend>&nbsp;Vrijetijdsbesteding&nbsp;</legend>
-            <table>
-			@foreach (Vrijetijdsbesteding item in Curriculum.LijstVrijetijdsbesteding)
-				{
-				<tr>
-                    <td>
-						&nbsp;&nbsp;&nbsp;Activiteit
-					</td>
-					<td>
-						<input @bind="item.Activiteit" />
-					</td>
-					<td>
-						<button class="minus" @onclick="() => Delete(item)">&nbsp;</button>
-					</td>
-                </tr>
-				}
-				<tr><td></td><td></td><td><button class="plus" @onclick="Add">&nbsp;</button></td></tr>
-            </table>
-        </fieldset>
+    <fieldset>
+        <legend>&nbsp;Vrijetijdsbesteding&nbsp;</legend>
+        <table>
+		@foreach (Vrijetijdsbesteding item in Curriculum.LijstVrijetijdsbesteding)
+			{
+			<tr>
+                <td>
+					&nbsp;&nbsp;&nbsp;Activiteit
+				</td>
+				<td>
+					<input @bind="item.Activiteit" />
+				</td>
+				<td>
+					<button class="minus" @onclick="() => Delete(item)">&nbsp;</button>
+				</td>
+            </tr>
+			}
+			<tr><td></td><td></td><td><button class="plus" @onclick="Add">&nbsp;</button></td></tr>
+        </table>
+    </fieldset>
 </div>
 
 

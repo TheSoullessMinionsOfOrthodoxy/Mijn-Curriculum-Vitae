@@ -1,21 +1,21 @@
 ﻿<div id="whitefont" style="background-color:none">
-        <fieldset height="100%">
-            <legend>&nbsp;Locatie&nbsp;</legend>
-            <table>
-                <tr>
-					<td><input  @bind="Curriculum.Adres" /></td>
-					<td>Adres</td>
-                </tr>
-                <tr>
-					<td><input  @bind="Curriculum.Postcode" /></td>
-					<td>Postcode</td>
-                </tr>
-                <tr>
-					<td><input @bind="Curriculum.Woonplaats" /></td>
-					<td>Woonplaats</td>
-                </tr>
-             </table>
-        </fieldset>
+    <fieldset height="100%">
+        <legend>&nbsp;Locatie&nbsp;</legend>
+        <table>
+            <tr>
+				<td><input  @bind="Curriculum.Adres" /></td>
+				<td>Adres</td>
+            </tr>
+            <tr>
+				<td><input  @bind="Curriculum.Postcode" /></td>
+				<td>Postcode</td>
+            </tr>
+            <tr>
+				<td><input @bind="Curriculum.Woonplaats" /></td>
+				<td>Woonplaats</td>
+            </tr>
+            </table>
+    </fieldset>
 </div>
 
 
@@ -25,6 +25,4 @@
 
     [CascadingParameter]
     public XMLData XmlData { get; set; }
-
-
 }

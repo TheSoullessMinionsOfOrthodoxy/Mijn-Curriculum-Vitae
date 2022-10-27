@@ -3,32 +3,32 @@
 @foreach (Opleiding item in Curriculum.LijstOpleiding)
 {
 	<br />
-		<fieldset>
-			<legend>&nbsp;Opleiding &nbsp;</legend>
-			<table>
-                  <tr>
-					<td>&nbsp;&nbsp;&nbsp;Naam</td>
-                    <td><input @bind="item.NaamOpleiding" /></td>
-					<td><button class="minus" @onclick="() => Delete(item)">&nbsp;</button></td>
-                </tr>
-                <tr>
-					<td>&nbsp;&nbsp;&nbsp;Niveau</td>
-                    <td><input @bind="item.Niveau" /></td>
-                    <td></td>
-                </tr>
-                <tr>
-					<td>&nbsp;&nbsp;&nbsp;Diploma</td>
-                    <td><input @bind="item.Diploma" /></td>
-                    <td></td>
-                </tr>
-                <tr>
-					<td>&nbsp;&nbsp;&nbsp;Toelichting</td>
-                    <td><input @bind="item.Toelichting" /></td>
-                    <td></td>
-                </tr>
-			</table>
-		</fieldset>
-		}
+	<fieldset>
+		<legend>&nbsp;Opleiding &nbsp;</legend>
+		<table>
+            <tr>
+				<td>&nbsp;&nbsp;&nbsp;Naam</td>
+				<td><input @bind="item.NaamOpleiding" /></td>
+				<td><button class="minus" @onclick="() => Delete(item)">&nbsp;</button></td>
+            </tr>
+            <tr>
+				<td>&nbsp;&nbsp;&nbsp;Niveau</td>
+                <td><input @bind="item.Niveau" /></td>
+                <td></td>
+            </tr>
+            <tr>
+				<td>&nbsp;&nbsp;&nbsp;Diploma</td>
+                <td><input @bind="item.Diploma" /></td>
+                <td></td>
+            </tr>
+            <tr>
+				<td>&nbsp;&nbsp;&nbsp;Toelichting</td>
+                <td><input @bind="item.Toelichting" /></td>
+                <td></td>
+            </tr>
+		</table>
+	</fieldset>
+}
 
 	<div>
 		<span style="float:right">

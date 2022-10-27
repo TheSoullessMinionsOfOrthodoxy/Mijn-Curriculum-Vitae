@@ -1,32 +1,32 @@
 ﻿<div id="whitefont">
 	@foreach (Werkervaring item in Curriculum.LijstWerkervaring)
-		{
-		<br />
-        <fieldset>
-            <legend>&nbsp;Werkervaring&nbsp;</legend>
-            <table>
-                <tr>
-				<td>&nbsp;&nbsp;&nbsp;Werkgever</td>
-                    <td><input @bind="item.Werkgever" /></td>
-				<td><button class="minus" @onclick="() => Delete(item)">&nbsp;</button></td>
-                </tr>
-                <tr>
-				<td>&nbsp;&nbsp;&nbsp;Functie</td>
-                    <td><input @bind="item.Functie" /></td>
-					<td></td>
-                </tr>
-                <tr>
-			<td>&nbsp;&nbsp;&nbsp;Periode</td>
-                    <td><input @bind="item.Periode" /></td>
+	{
+	<br />
+    <fieldset>
+        <legend>&nbsp;Werkervaring&nbsp;</legend>
+        <table>
+            <tr>
+			<td>&nbsp;&nbsp;&nbsp;Werkgever</td>
+                <td><input @bind="item.Werkgever" /></td>
+			<td><button class="minus" @onclick="() => Delete(item)">&nbsp;</button></td>
+            </tr>
+            <tr>
+			<td>&nbsp;&nbsp;&nbsp;Functie</td>
+                <td><input @bind="item.Functie" /></td>
 				<td></td>
-                </tr>
-                <tr>
-				<td>&nbsp;&nbsp;&nbsp;Referenties</td>
-                    <td><input @bind="item.Referenties" /></td>
-					<td></td>
-                </tr>
-            </table>
-        </fieldset>
+            </tr>
+            <tr>
+		<td>&nbsp;&nbsp;&nbsp;Periode</td>
+                <td><input @bind="item.Periode" /></td>
+			<td></td>
+            </tr>
+            <tr>
+			<td>&nbsp;&nbsp;&nbsp;Referenties</td>
+                <td><input @bind="item.Referenties" /></td>
+				<td></td>
+            </tr>
+        </table>
+    </fieldset>
     }
 	<div>
 		<span style="float:right">
