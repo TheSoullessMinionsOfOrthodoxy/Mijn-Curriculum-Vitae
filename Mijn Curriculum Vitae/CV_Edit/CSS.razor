@@ -32,6 +32,13 @@ input {
 
     input[type=text]:focus {border: 1px solid #000;}
 
+textarea{
+    padding: 20px;
+    width:350px;
+    height: 300px;
+    border-radius: 24px;
+}
+
 fieldset {
     border-radius: 24px;
     border-width: 2px;
@@ -57,6 +64,7 @@ button {
     background-color: transparent;
     border: none;
     align-items: center;
+	cursor: pointer;
 }
 
 #header {
@@ -70,14 +78,17 @@ button {
     z-index: 1;
     border: 1px solid #d6d5d5;
 	border-style:solid;
-    /*justify-content: flex-end;*/
     height: 3.5rem;
-    align-items: center;
-	background-color: lightgray;
+	display: flex;
+	justify-content: center;
+    align-content: center;
+	background-color: rgb(240,240,240);
 }
 .container {
     position: absolute;
 	width: 95.5vmax;
+		align-content: center;
+	justify-content:center;
 }
 
 .bg_grid-container {
@@ -129,10 +140,10 @@ button {
 .btn-primary {
     color: #000;
     padding: 17px;
-    /*width: 90px;*/
     border: 1px solid;
     border-color: gray;
     border-radius: 24px;
+	cursor: pointer;
 }
 
     .btn-primary:hover {transform: scale(0.7);}
@@ -148,6 +159,7 @@ button {
 	flex-wrap: wrap;
     padding-bottom: 15px;
 	align-items: center;
+	align-content:center;
     justify-content: center;
     background-color: none;
     border-radius: 24px;
@@ -166,7 +178,7 @@ button {
 		display: flex;
 		flex-direction: column;
 		margin: 10px;
-		padding: 15px;
+		padding: 10px;
 		font-size: 13px;
 		border-radius: 24px;
 		border: 1px solid rgb(100,100,100);
@@ -175,18 +187,14 @@ button {
 		justify-content: center;
 		margin-right: 20px
 }
-			.flex-container > .DataDrager-B  > div {
-            margin: 10px;
-            font-size: 13px;
-            border-radius: 24px;
-            border: 1px solid rgb(100,100,100);
-        }
 
-            .flex-container > header > div:hover {
-                transform: scale(1.1);
-            }
-
-#whitefont{
+.datadrager-card{
+	margin: 10px;
+    font-size: 13px;
+    border-radius: 24px;
+	color: white;
+}
+.whitefont{
 	color: white;
 	border: 1px black;
 }
@@ -199,7 +207,7 @@ button {
 }
 .DataDrager-B {
     display: flex;
-    padding: 15px;
+    padding: 10px;
     align-content: center;
     justify-content: center;
     margin-right: 20px
@@ -211,6 +219,7 @@ button {
 	background:transparent;
 	align-content:flex-end; 
 	margin-right:20px;
+	margin-left:20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -218,7 +227,11 @@ button {
 	border-radius: 24px;
 }
 
-.minus {background-image: url(minus-white.png);}
+.minus {
+	background-image: url(minus-white.png);
+/*background-color:hsl(@Top.basisKleurTegenover,100%,85%); 
+border-radius:10px;*/
+}
 .plus {background-image: url(plus-circle.png);}
 
 
@@ -233,15 +246,30 @@ button {
 .nuance1, .nuance2, .nuance3, .nuance4, .nuance5, .nuance6 {
     border: 1px solid rgb(100,100,100);
     padding: 12px;
-    width: 15px;
-    height: 15px;
+
     border-radius: 55%;
-    margin: 5px;
+	margin-left: auto;
+    margin-right: auto;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 .houseofcolorsBEE, .houseofcolorsHoC, .houseofcolorsHusk, .houseofcolorsHeerlen{
 	padding:5px;
 	border-radius: 18px 0px;
+
+	@{
+		if (Rand.getRandom.Next(1,3) % 2 == 0)
+	{
+			<text>color:white;</text>	
+	}
+	else
+	{
+		<text>color:black;</text>	
+	}
+	}
+
+
 }
 
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  KLEUREN    KLEUREN  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
@@ -250,10 +278,10 @@ button {
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  KLEUREN  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 
 input {
-	background-color: hsl(@Top.basisKleur,100%,90%);;
+	background-color: hsl(@Top.basisKleur,100%,90%);
 }
 .bg_grid-container {
-	background-color: hsl(@Top.basisKleurSL(50,53,18,22));
+	background-color: hsl(@Top.basisKleurSL(50,53,12,18));
 	/*border:dotted 15px white;*/}
 .bg_grid-container > div {
 	background-color: hsl(@Top.basisKleurSL(60,65,90,95));
@@ -262,23 +290,24 @@ input {
 
 .bg-item7  {
 	background-color:hsl(@Top.basisKleur_Min,  40%,@Rand.getRandom.Next(80,90)%) !important;
-	border:dotted 15px hsl(@Top.basisKleurSL(50,53,15,17));}
+	border:dashed 15px hsl(@Top.basisKleurSL(50,53,18,22));
+}
 .bg-item10 {
 	background-image:linear-gradient(hsl(@Top.basisKleurSL(30, 80, 70,90)), hsl(@Top.basisKleurSL(30, 80, 10, 20)));
 	}
-.bg-item1  {background-color:hsl(@Top.basisKleur_Min,  40%,@Rand.getRandom.Next(80,95)%) !important;}
+.bg-item1  {background-color:hsl(@Top.basisKleur_Min+15,  40%,@Rand.getRandom.Next(40,95)%) !important;}
 .bg-item2  {background-color:hsl(@Top.basisKleur_Min,  50%,@Rand.getRandom.Next(80,90)%) !important;}
-.bg-item3  {background-color:hsl(@Top.basisKleur_Min,  50%,@Rand.getRandom.Next(78,95)%) !important;}
-.bg-item4  {background-color:hsl(@Top.basisKleurTegenover, 100%,@Rand.getRandom.Next(80,95)%) !important;}
+.bg-item3  {background-color:hsl(@Top.basisKleur_Min+20,  50%,@Rand.getRandom.Next(48,95)%) !important;}
+.bg-item4  {background-color:hsl(@Top.basisKleurSL(50,53,11,17)) !important;}
 .bg-item5  {background-color:hsl(@Top.basisKleur_Min,  60%,@Rand.getRandom.Next(20,30)%) !important;}
-.bg-item6  {background-color:hsl(@Top.basisKleur_Plus,  50%,@Rand.getRandom.Next(80,80)%) !important;}
-.bg-item8  {background-color:hsl(@Top.basisKleur_Min,  40%,@Rand.getRandom.Next(80,90)%) !important;}
-.bg-item9  {background-color:hsl(@Top.basisKleur_Min,  20%,@Rand.getRandom.Next(80,90)%) !important;}
-.bg-item11 {background-color:hsl(@Top.basisKleur_Min, 70%,@Rand.getRandom.Next(80,90)%) !important;}
-.bg-item12 {background-color:hsl(@Top.basisKleur_Min, 60%,@Rand.getRandom.Next(80,95)%) !important;}
+.bg-item6  {background-color:hsl(@Top.basisKleurSL(50,53,18,28)) !important;}
+.bg-item8  {background-color:hsl(@Top.basisKleur_Min-20,  40%,@Rand.getRandom.Next(40,90)%) !important;}
+.bg-item9  {background-color:hsl(@Top.basisKleur_Min+10,  20%,@Rand.getRandom.Next(40,90)%) !important;}
+.bg-item11 {background-color:hsl(@Top.basisKleur_Min,  60%,@Rand.getRandom.Next(20,30)%) !important;}
+.bg-item12 {background-color:hsl(@Top.basisKleur_Plus, 60%,@Rand.getRandom.Next(50,65)%) !important;}
 .bg-item13 {background-color:hsl(@Top.basisKleur_Min,  70%,@Rand.getRandom.Next(80,95)%) !important;}
-.bg-item14 {background-color:hsl(@Top.basisKleur_Min,  70%,@Rand.getRandom.Next(80,90)%) !important;}
-.bg-item15 {background-color:hsl(@Top.basisKleur_Min, 60%,@Rand.getRandom.Next(80,90)%) !important;}
+.bg-item14 {background-color:hsl(@Top.basisKleur_Min,  60%,@Rand.getRandom.Next(20,30)%) !important;}
+.bg-item15 {background-color:hsl(@Top.basisKleur_Min, 60%,@Rand.getRandom.Next(40,90)%) !important;}
 
 .btn-primary {background-color: hsl(@Top.basisKleurSL(98,101,48,52));} 
 .btn-primary:hover {background-color: hsl(@(Top.basisKleur + 20), 100%, 50%);}
@@ -287,7 +316,7 @@ input {
 	background-image: linear-gradient(to left top, hsl(@Top.basisKleurSL(30, 80, 70, 90)), hsl(@Top.basisKleurSL(60, 80, 35,60)));
 }
 
-#fs-span {
+.fs-span {
 	padding:2px;
 	border-radius:10px;
 	background-color:hsl(@Top.basisKleurSL(50, 60, 20, 30));
@@ -298,16 +327,52 @@ input {
 .flex-container > .DataDrager-B {
 	background-color: hsl(@Top.basisKleurSL(20, 60, 20, 80));}
 .flex-container > .DataDrager-B  > div {
-	background-color: hsl(@Top.basisKleurSL(45, 60, 40, 42));}
+}
 
+.datadrager-card{
+	/*background-color: hsl(@Top.basisKleurSL(45, 60, 40, 42));*/
+}
+
+fieldset{
+	background-color: hsl(@Top.basisKleurSL(45, 60, 40, 42));
+}
 .divcolorbuttons {background-color: hsl(@Top.basisKleurSL(20,70,20,80));} 
 
-.nuance1 {background-color: hsl(@Top.basisKleurSL(49,80,15,25));}
-.nuance2 {background-color: hsl(@Top.basisKleurSL(40,80,30,40));}
-.nuance3 {background-color: hsl(@Top.basisKleurSL(40,80,45,55));}
-.nuance4 {background-color: hsl(@Top.basisKleurSL(40,80,60,70));}
-.nuance5 {background-color: hsl(@Top.basisKleurSL(40,80,75,85));}
-.nuance6 {background-color: hsl(@Top.basisKleurSL(40,80,88,95));}
+.nuance1 {background-color: hsl(@Top.basisKleurSL(49,80,15,25));
+    width:10px;
+	height:10px;
+	padding:0px;
+	box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.42), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.nuance2 {background-color: hsl(@Top.basisKleurSL(40,80,30,40));
+    width:18px;
+	height:18px;
+	padding:0px;
+	box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.42), 0 3px 10px 0 rgba(0, 0, 0, 0.17);
+}
+.nuance3 {background-color: hsl(@Top.basisKleurSL(40,80,45,55));
+    width:26px;
+	height:26px;
+	padding:0px;
+	box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.42), 0 3px 10px 0 rgba(0, 0, 0, 0.14);
+}
+.nuance4 {background-color: hsl(@Top.basisKleurSL(40,80,60,70));
+    width:32px;
+	height:32px;	
+	padding:0px;
+	box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.42), 0 3px 10px 0 rgba(0, 0, 0, 0.10);
+}
+.nuance5 {background-color: hsl(@Top.basisKleurSL(40,80,75,85));
+    width:40px;
+	height:40px;
+	padding:0px;
+	box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.42), 0 3px 10px 0 rgba(0, 0, 0, 0.10);
+}
+.nuance6 {background-color: hsl(@Top.basisKleurSL(40,80,88,95));
+	    width:48px;
+		height:48px;
+			padding:0px;
+}
 
 p > span {
 	@{	// text in header 
@@ -344,7 +409,6 @@ p > span {
 		"item1",
 		"item2",
 		"item3",
-		"item4",
 		"item5",
 		"item6",
 		"item7",
@@ -357,7 +421,7 @@ p > span {
 		"item14"
 		};
 		int count = gridItems.Count();
-		sb.Append("grid-template-areas: ");
+		sb.Append("grid-template-areas: " + $"\"" + "item4" + $"\"");
 		for (int i = 0; i < count; i++)
 		{
 			string weg = gridItems[Rand.getRandom.Next(0, count - i)];

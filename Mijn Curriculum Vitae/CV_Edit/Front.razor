@@ -1,28 +1,11 @@
-﻿<div class="DataDrager-C">
-	<br>
-	<div>
-		<div class="nuance6">&nbsp;&nbsp;&nbsp;</div>
-		<div class="nuance5">&nbsp;&nbsp;&nbsp;</div>
-		<div class="nuance4">&nbsp;&nbsp;&nbsp;</div>
-		<div class="nuance3">&nbsp;&nbsp;&nbsp;</div>
-		<div class="nuance2">&nbsp;&nbsp;&nbsp;</div>
-		<div class="nuance1">&nbsp;&nbsp;&nbsp;</div>
-		<div class="nuance2">&nbsp;&nbsp;&nbsp;</div>
-		<div class="nuance3">&nbsp;&nbsp;&nbsp;</div>
-		<div class="nuance4">&nbsp;&nbsp;&nbsp;</div>
-		<div class="nuance5">&nbsp;&nbsp;&nbsp;</div>
-		<div class="nuance6">&nbsp;&nbsp;&nbsp;</div>
-	</div>
-</div>
+﻿
 
 <div class="DataDrager-A" style="background-color:none; display: flex; justify-content:  center;">
-	<div style="align-items: center; display: flex; justify-content: center;">
 		<CascadingValue Value="@Curriculum">
 			<CascadingValue Value="@XmlData">
 				<EditDating />
 			</CascadingValue>
 		</CascadingValue>
-	</div>
 </div>
 
 <div class="DataDrager-B" style="align-items: center; display: flex; justify-content: center;">
@@ -37,6 +20,23 @@
 			<EditVrijetijdsbesteding />
 		</CascadingValue>
 	</CascadingValue>
+</div>
+
+<div class="DataDrager-C">
+	<br>
+	<div>
+		<div class="nuance6">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance5">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance4">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance3">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance2">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance1">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance2">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance3">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance4">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance5">&nbsp;&nbsp;&nbsp;</div>
+		<div class="nuance6">&nbsp;&nbsp;&nbsp;</div>
+	</div>
 </div>
 
 <div class="DataDrager-B" style="align-items: center; display: flex; justify-content: center;">
@@ -63,6 +63,16 @@
 	</CascadingValue>
 </div>
 
+<div class="DataDrager-B" style="align-items: center; display: flex; justify-content: center;">
+	<CascadingValue Value="@Curriculum">
+		<CascadingValue Value="@XmlData">
+			<Voorkeuren />
+			<SterkZwak />
+		</CascadingValue>
+	</CascadingValue>
+
+</div>
+
 <div class="DataDrager-B" style="background-color: hsl(@Top.basisKleur_Plus,@Rand.getRandom.Next(20, 80)%,@Rand.getRandom.Next(10, 80)%);align-items: center; display: flex; justify-content: center;">
 	<CascadingValue Value="@Curriculum">
 		<CascadingValue Value="@XmlData">
@@ -71,13 +81,7 @@
 	</CascadingValue>
 </div>
 
-
-
-
 @code {
-
-
-
 	[CascadingParameter]
 	public Colors Top { get; set; }
 
@@ -86,8 +90,6 @@
 
 	[CascadingParameter]
 	public XMLData XmlData { get; set; }
-
-
 
 	// deze void methods zorgen ervoor dat de method Top.SetValues(Colors.button, 10) ook weten
 	// in welk kleurgebied de random basiskleur moet worden getrokken
