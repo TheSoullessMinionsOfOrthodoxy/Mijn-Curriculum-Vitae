@@ -38,22 +38,24 @@
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  VOORGROND DIV die met css flexbox werkt  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
 <div class="flex-container" style="padding-top:30px;"> 
-	<div class="DataDrager-B" style="margin-right:20px">
+
+	<div class="DataDrager-B">
 		<div class="divcolorbuttons">
 			<input type="hidden" @bind="Top.basisKleur" />
 			<button style="background-color:@Colors.Rood" class="btn-primary" @onclick="Rood">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 			<button style="background-color:@Colors.Geel;" class="btn-primary" @onclick="Geel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 
 		</div>
-		<div class="divcolorbuttons" style="width:45%">
-		</div>
+			<div class="divcolorbuttons" style="border-radius:10px;padding: 6px;padding-left:22px;padding-right:22px;">&nbsp;&nbsp;&nbsp;</div>
+@*		<div class="divcolorbuttons" style="width:45%">
+		</div>*@
 		<div class="divcolorbuttons">
 			<button style="background-color:@Colors.Groen" class="btn-primary" @onclick="Groen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 			<button style="background-color:@Colors.Cyaan" class="btn-primary" @onclick="Cyaan">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 
 		</div>
-		<div class="divcolorbuttons">
-		</div>
+@*		<div class="divcolorbuttons">
+		</div>*@
 		<div class="divcolorbuttons">
 			<button style="background-color:@Colors.Blauw" class="btn-primary" @onclick="Blauw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 			<button style="background-color:@Colors.Magenta" class="btn-primary" @onclick="Magenta">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
@@ -61,6 +63,7 @@
 		</div>
 
 	</div>
+
 	<CascadingValue Value="@Top">	
 		<CascadingValue Value="@Curriculum">
 			<CascadingValue Value="@XmlData">
